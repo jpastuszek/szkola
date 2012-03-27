@@ -61,8 +61,33 @@ nav {
 }
 
 .site {
-	margin-left: 144px;
-	padding-left: 6px;
+	margin-left: 150px;
+}
+
+aside {
+	float: left;
+	padding: 3px;
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-radius: 3px 3px 3px 3px;
+	line-height: 0;
+}
+
+img {
+	border: 1px solid #CACACA;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.right {
+	margin-left: 220px;
+}
+
+.recipe {
+	background-color: #F6F6F6;
+	border: 1px solid #CCCCCC;
+	padding: 0.7em;
+	padding-left: 20px;
+	margin: 0px;
+	margin-bottom: 6px;
 }
 
 article {
