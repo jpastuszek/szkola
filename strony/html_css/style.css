@@ -1,35 +1,93 @@
+.wrapper {
+	margin: 0 auto;
+	width: 920px;
+}
+
+.container {
+	background: none repeat scroll 0 0 #FAFAFA;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-color: #FFFFFF #DDDDDD #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
 header {
 	font-weight: bold;
+	font-size: 32px;
+	padding: 10px;
 	text-align: center;
+	background: -moz-linear-gradient(#FAFAFA, #EAEAEA) repeat scroll 0 0 transparent;
+	border-color: #EAEAEA #EAEAEA #CACACA;
+	border-radius: 3px 3px 3px 3px;
+	border-style: solid;
+	border-width: 1px;
+	margin: 10px 0 0;
 }
 
-.menu_item {
-	display: inline-block;
-	padding: 0 10em;
+.frame {
+	border: 1px solid;
 }
 
-.opcje_bar {
-	overflow: hidden;
+.left {
+	float: left;
+	width: 142px;
+	#padding: 6px 8px;
 }
 
-.opcje {
-	display: inline-block;
+nav {
+	border: 1px solid;
+	border-color: #EAEAEA #EAEAEA #CACACA;
+	width: 140px;
 }
 
-.spacer {
-	padding: 0 auto;
+.menu_entry {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: #333333;
+	line-height: 35px;
+	background: -moz-linear-gradient(#FAFAFA, #EAEAEA) repeat scroll 0 0 transparent;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+	border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.article_section {
-	background-color: green;
-	padding: 1em;
+.menu_entry_selected {
+	color: black;
+	border-left: 2px solid #D26911;
 }
 
-.left_section {
-	float: left
+.site {
+	margin-left: 144px;
+	padding-left: 6px;
 }
 
-.right_section {
+article {
+    background: none repeat scroll 0 0 #E6F1F6;
+	border: 1px solid #C5D5DD;
+	border-radius: 4px 4px 4px 4px;
+	margin-bottom: 10px;
+	padding: 8px 8px 0;
+}
+
+article>section:first-child {
+	padding-bottom: 6px;
+}
+
+article>section:last-child {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-top: 1px solid #D8E6EC;
+	margin-left: -8px;
+	padding: 8px;
+	width: 100%;
+}
+
+footer {
 	float: right;
 }
 
