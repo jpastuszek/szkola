@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+	</head>
+	<body class="wrapper">
+		<header>
+			<div class="title">Thunder, thunder, thundercats, Ho!</div>
+		</header>
+
+		<section class="container">
+			<section class="left">
+				<nav>
+					<a class="menu_entry" href="index.html">home</a>
+					<a class="menu_entry" href="products.html">products</a>
+					<a class="menu_entry menu_entry_selected" href="contact.html">contacts</a>
+				</nav>
+			</section>
+
+			<section class="site">
+				<article>
+					<section>
+						Contact us!
+					</section>
+					<section>
+						<form enctype="text/plain" action="mailto:jpastuszek@gmail.com" method="post">
+							<dl>
+								<dt>
+									<label for="name">Name</label>
+								</dt>
+								<dd>
+									<input type="text" id="name" placeholder="John Smith" required />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="email">E-mail</label>
+								</dt>
+								<dd>
+									<input type="email" id="email" placeholder="you@example.com" required />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="message">Message</label>
+								</dt>
+								<dd>
+									<textarea id="message" rows="10" cols="80" required></textarea>
+								</dd>
+							</dl>
+							<input type="submit" value="Send!" />
+						</form>
+					</section>
+				</article>
+			</section>
+		</section>
+		<footer>Copyright 2011 Jakub Pastuszek</footer>
+	</body>
+</html>
+

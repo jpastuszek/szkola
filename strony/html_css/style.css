@@ -62,6 +62,7 @@ nav {
 
 .site {
 	margin-left: 150px;
+	min-height: 250px;
 }
 
 aside {
@@ -79,6 +80,7 @@ img {
 
 .right {
 	margin-left: 220px;
+	min-height: 210px;
 }
 
 .recipe {
@@ -110,6 +112,28 @@ article>section:last-child {
 	margin-left: -8px;
 	padding: 8px;
 	width: 100%;
+}
+
+input {
+	display: block;
+	padding: 4px;
+	margin-top: 4px;
+}
+
+form dl {
+	margin: 12px;
+}
+
+form dt {
+	margin: 0px;
+}
+
+form dd {
+	margin: 0px;
+}
+
+input[type="submit"] {
+	margin-left: 12px;
 }
 
 footer {
