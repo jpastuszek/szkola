@@ -1,0 +1,35 @@
+header {
+	font-weight: bold;
+	text-align: center;
+}
+
+.menu_item {
+	display: inline-block;
+	padding: 0 10em;
+}
+
+.opcje_bar {
+	overflow: hidden;
+}
+
+.opcje {
+	display: inline-block;
+}
+
+.spacer {
+	padding: 0 auto;
+}
+
+.article_section {
+	background-color: green;
+	padding: 1em;
+}
+
+.left_section {
+	float: left
+}
+
+.right_section {
+	float: right;
+}
+
