@@ -20,7 +20,13 @@ header {
 	font-size: 32px;
 	padding: 10px;
 	text-align: center;
-	background: -moz-linear-gradient(#FAFAFA, #EAEAEA) repeat scroll 0 0 transparent;
+	background: #FAFAFA;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FAFAFA), to(#EAEAEA));
+	background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -ms-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -o-linear-gradient(#FAFAFA, #EAEAEA);
+	background: linear-gradient(#FAFAFA, #EAEAEA);
 	border-color: #EAEAEA #EAEAEA #CACACA;
 	border-radius: 3px 3px 3px 3px;
 	border-style: solid;
@@ -50,7 +56,13 @@ nav {
 	text-decoration: none;
 	color: #333333;
 	line-height: 35px;
-	background: -moz-linear-gradient(#FAFAFA, #EAEAEA) repeat scroll 0 0 transparent;
+	background: #FAFAFA;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FAFAFA), to(#EAEAEA));
+	background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -ms-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -o-linear-gradient(#FAFAFA, #EAEAEA);
+	background: linear-gradient(#FAFAFA, #EAEAEA);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 	border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
