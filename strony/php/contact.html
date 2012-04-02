@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Thunder, thunder, thundercats, Ho!</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+	</head>
+	<body class="wrapper">
+		<header>
+			<div class="title">Thunder, thunder, thundercats, Ho!</div>
+		</header>
+
+		<section class="container">
+			<section class="left">
+				<nav>
+					<a class="menu_entry" href="cw3.php">cw3</a>
+					<a class="menu_entry" href="products.html">products</a>
+					<a class="menu_entry menu_entry_selected" href="contact.html">contacts</a>
+				</nav>
+			</section>
+
+			<section class="site">
+				<article>
+					<section>
+						Contact us!
+					</section>
+					<section>
+						<form action="cw4.php" method="post">
+							<dl>
+								<dt>
+									<label for="name">Name</label>
+								</dt>
+								<dd>
+									<input name="text" type="text" id="name" validation="required" placeholder="John Smith" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="email">E-mail</label>
+								</dt>
+								<dd>
+									<input name="email" type="email" id="email" validation="required email" placeholder="you@example.com" />
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="message">Message</label>
+								</dt>
+								<dd>
+									<textarea name="message" id="message" validation="required" rows="10" cols="80"></textarea>
+								</dd>
+							</dl>
+							<input type="submit" value="Send!" />
+						</form>
+					</section>
+				</article>
+			</section>
+		</section>
+		<footer>Copyright 2011 Jakub Pastuszek</footer>
+		<script type="text/javascript" src="validation.js"></script>
+	</body>
+</html>
+
