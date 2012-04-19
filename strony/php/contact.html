@@ -29,6 +29,19 @@
 						<form action="cw4.php" method="post">
 							<dl>
 								<dt>
+									<label for="title">Title</label>
+								</dt>
+								<dd>
+									<select validation="selected">
+										<option value="none">---</option>
+										<option value="mr">Mr.</option>
+										<option value="ms">Ms.</option>
+										<option value="mrs">Mrs.</option>
+									</select>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
 									<label for="name">Name</label>
 								</dt>
 								<dd>
@@ -50,6 +63,22 @@
 								<dd>
 									<textarea name="message" id="message" validation="required" rows="10" cols="80"></textarea>
 								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<label for="rating">Rate this website</label>
+								</dt>
+								<dd>
+									<fieldset validation="selected">
+										<input type="radio" name="rating" id="rating" value="bad">Bad
+										<input type="radio" name="rating" id="rating" value="ok">OK
+										<input type="radio" name="rating" id="rating" value="good">Good
+									</fieldset>
+								</dd>
+							</dl>
+							<dl>
+								<input class="inline" type="checkbox" name="marketing" id="marketing" value="1" />
+								<label for="marketing">I want to receive marketing materials</label>
 							</dl>
 							<input type="submit" value="Send!" />
 						</form>

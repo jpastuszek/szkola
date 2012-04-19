@@ -148,11 +148,24 @@ input[type="submit"] {
 	margin-left: 12px;
 }
 
+input[type="radio"],input[type="checkbox"] {
+	display: inline; 
+	margin-left: 2em;
+}
+
+input[type="radio"]:first-child,input[type="checkbox"]:first-child {
+	margin-left: 0em;
+}
+
+fieldset {
+	width: 12em;
+}
+
 footer {
 	float: right;
 }
 
-input, textarea {
+input, textarea, fieldset {
 	border: 1px gray solid;
 }
 
