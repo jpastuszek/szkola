@@ -32,11 +32,11 @@
 									<label for="title">Title</label>
 								</dt>
 								<dd>
-									<select validation="selected">
+									<select name="title" id="title" validation="selected">
 										<option value="none">---</option>
-										<option value="mr">Mr.</option>
-										<option value="ms">Ms.</option>
-										<option value="mrs">Mrs.</option>
+										<option value="Mr.">Mr.</option>
+										<option value="Ms.">Ms.</option>
+										<option value="Mrs.">Mrs.</option>
 									</select>
 								</dd>
 							</dl>
@@ -45,7 +45,7 @@
 									<label for="name">Name</label>
 								</dt>
 								<dd>
-									<input name="text" type="text" id="name" validation="required" placeholder="John Smith" />
+									<input name="name" type="text" id="name" validation="required" placeholder="John Smith" />
 								</dd>
 							</dl>
 							<dl>
@@ -70,16 +70,14 @@
 								</dt>
 								<dd>
 									<fieldset validation="selected">
-										<input type="radio" name="rating" id="rating" value="bad">Bad
-										<input type="radio" name="rating" id="rating" value="ok">OK
-										<input type="radio" name="rating" id="rating" value="good">Good
+										<input type="radio" name="rating" value="Bad">Bad
+										<input type="radio" name="rating" id="rating" value="OK">OK
+										<input type="radio" name="rating" value="Good">Good
 									</fieldset>
 								</dd>
 							</dl>
-							<dl>
-								<input class="inline" type="checkbox" name="marketing" id="marketing" value="1" />
-								<label for="marketing">I want to receive marketing materials</label>
-							</dl>
+							<input class="inline" type="checkbox" name="marketing" id="marketing" value="1" />
+							<label for="marketing">I want to receive marketing materials</label>
 							<input type="submit" value="Send!" />
 						</form>
 					</section>
