@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Geo2 (AJAX)</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+		<script>
+			jQuery(window).ready(function() {
+				jQuery("#btnInit").click(initiate_geolocation); 
+			});
+
+			function initiate_geolocation() {
+				navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
+			}
+
+			function handle_errors(error)
+			{
+				switch(error.code) {
+					case error.PERMISSION_DENIED: 
+						alert("user did not share geolocation data");
+						break;
+					case error.POSITION_UNAVAILABLE:
+						alert("could not detect current position");
+						break;
+					case error.TIMEOUT:
+						alert("retrieving position timed out");
+						break;
+					default:
+						alert("unknown error");
+						break;
+				} 
+			}
+
+			function handle_geolocation_query(position) {
+				var text = "Latitude: " + position.coords.latitude + "<br/>" + "Longitude: " + position.coords.longitude + "<br/>" + "Accuracy: " + position.coords.accuracy + "m<br/>" + "Time: " + new Date(position.timestamp);
+				jQuery("#info").html(text); //tu podmiana
+				var image_url = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + position.coords.latitude + ',' + position.coords.longitude + "&zoom=14&size=300x400&markers=color:blue|label:S|" + position.coords.latitude + ',' + position.coords.longitude;
+				jQuery("#map").html(
+					jQuery(document.createElement("img")).attr("src", image_url).attr('id','map')
+				);
+			}
+		</script>
+	</head>
+	<body class="wrapper">
+		<header>
+			<div class="title">Geo2 (AJAX)</div>
+		</header>
+		<div>
+			<button id="btnInit">Find my location</button>
+			<div id='info'></div>
+			<div id='map'></div>
+		</div>
+		<hr/>
+		<footer>Copyright 2011 Jakub Pastuszek</footer>
+	</body>
+</html>
+
