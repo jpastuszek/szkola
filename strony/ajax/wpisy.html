@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Wpisy (AJAX)</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+		<script>
+			$(document).ready(function () {
+				$.ajax({
+					type: "GET",
+					url: "wpisy.xml", dataType: "xml", success: fParsujXml
+				}); 
+			});
+			function fParsujXml(xml) {
+				$(xml).find("wpis").each(function () {
+					$(".wpisy:last").append(
+						'<div class="wpis"><div class="tytul">'
+						+ $(this).find("tytul").text() + '</div><div class="opis">'
+						+ $(this).find("opis").text() + '</div><div class="data">Dnia '
+						+ $(this).find("data").text() + '</div><div class="link"><a href="'
+						+ $(this).find("link").text() + '"target="_blank">link</a></div></div>'
+					); 
+					$(".wpisy").fadeIn(1000);
+				}); 
+			}
+		</script>
+	</head>
+	<body class="wrapper">
+		<header>
+			<div class="title">Wpisy (AJAX)</div>
+		</header>
+		<div class='wpisy'></div>
+		<hr/>
+		<footer>Copyright 2011 Jakub Pastuszek</footer>
+	</body>
+</html>
+

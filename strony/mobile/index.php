@@ -8,7 +8,7 @@ $ua = $_SERVER['HTTP_USER_AGENT'];
 // This line detects the visiting device by looking at its HTTP Request ($_SERVER)
 $requestingDevice = $wurflManager->getDeviceForHttpRequest($_SERVER);
 
-if (preg_match("/xhtmlmp/", $requestingDevice->getCapability('preferred_markup'))) {
+if (preg_match("/xhtmlmp|wml/", $requestingDevice->getCapability('preferred_markup'))) {
 	header("Content-Type: application/xhtml+xml");
 	echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n";
 ?>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wpisy>
+	<wpis>
+		<tytul>SmallDSO</tytul>
+		<opis>Strona projektu</opis>
+		<data>12.23.08</data>
+		<link>http://smalldso.sigquit.net</link>
+	</wpis>
+	<wpis>
+		<tytul>SigQUIT</tytul>
+		<opis>Strona domowa</opis>
+		<data>01.31.12</data>
+		<link>http://sigquit.net</link>
+	</wpis>
+	<wpis>
+		<tytul>Minecraft</tytul>
+		<opis>Strona gry Minecraft</opis>
+		<data>03.31.12</data>
+		<link>http://minecraft.net</link>
+	</wpis>
+</wpisy>
