@@ -1,0 +1,2 @@
+Why are people so concerned about milliseconds? If you have to use any tools to measure the difference in performance of these various selectors, then the difference is negligible. When you buy a box of cereal, do you take it home and check to make sure the box contains the exact number of ounces that is displayed on the box? Unless you are obsessive, you probably don't. I have ever executed some JQuery and said to myself, "That is 14ms of my life I wish I had back."
+
