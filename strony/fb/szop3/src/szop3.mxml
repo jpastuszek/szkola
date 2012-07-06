@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="400">
+	<s:states>
+		<s:State name="State1"/>
+		<s:State name="cartView"/>
+		<s:State name="expandend"/>
+	</s:states>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Group id="bodyGroup" x="0" y="0" width="100%" height="100%">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		<s:Group id="products" width="100%" height="150"
+				 visible.cartView="false" width.cartView="0" height.cartView="0">
+			<s:Label id="productName" x="13" y="65" text="Towar 1"/>
+			<s:Label id="price" x="140" y="64" text="2,10 zł"/>
+			<s:Button id="add" x="209" y="51" label="Dodaj do koszyka"/>
+			<s:Label x="639" y="10" text="Towja karta - suma"/>
+			<s:Button x="634" y="26" label="Zobacz koszyk"
+					  click.State1="currentState='cartView'"/>
+			<s:Image x="65" y="60" width="70" height="48" mouseOut="currentState='State1'"
+					 mouseOver="currentState='expandend'" scaleMode="stretch" source="compute.jpg"/>
+		</s:Group>
+		<s:Group id="cartGroup" width="100%" height="300">
+			<s:Button id="btnCartView" x="143" y="6" label="Zobacz koszyk"/>
+			<s:Button id="btnCheckout" x="28" y="6" label="Sprawdź koszyk"/>
+			<s:Label x="832" y="578" text="( c ) 2012, Mój sklep,"/>
+			<s:Button includeIn="cartView" x="28" y="39" label="Kontynuuj zakupy"
+					  click="currentState=''"/>
+			<s:DataGrid includeIn="cartView" x="59" y="115" requestedRowCount="4">
+				<s:columns>
+					<s:ArrayList>
+						<s:GridColumn dataField="dataField1" headerText="Column 1"></s:GridColumn>
+						<s:GridColumn dataField="dataField2" headerText="Column 2"></s:GridColumn>
+						<s:GridColumn dataField="dataField3" headerText="Column 3"></s:GridColumn>
+					</s:ArrayList>
+				</s:columns>
+				<s:typicalItem>
+					<fx:Object dataField1="Sample Data" dataField2="Sample Data"
+							   dataField3="Sample Data"></fx:Object>
+				</s:typicalItem>
+				<s:ArrayList>
+					<fx:Object dataField1="data1" dataField2="data1" dataField3="data1"></fx:Object>
+					<fx:Object dataField1="data2" dataField2="data2" dataField3="data2"></fx:Object>
+					<fx:Object dataField1="data3" dataField2="data3" dataField3="data3"></fx:Object>
+					<fx:Object dataField1="data4" dataField2="data4" dataField3="data4"></fx:Object>
+				</s:ArrayList>
+			</s:DataGrid>
+		</s:Group>
+		<s:VGroup includeIn="expandend" width="50%">
+			<s:RichText width="469" height="86"
+						text="Towar 1 jest zielony i ma areodynamiczny kształt. Super, polecam!"
+						verticalAlign="middle"/>
+		</s:VGroup>
+	</s:Group>
+</s:Application>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   minWidth="955" minHeight="600">
+	<fx:Declarations>
+		
+		<s:HTTPService
+			id="srv" url="http://localhost/~jpastuszek/strony/fb/formularz_php/formtest.php" method="POST"
+			result="mx.controls.Alert.show (srv.lastResult.toString());">
+			<mx:request>
+				<first>{first.text}</first>
+				<last>{last.text}</last>
+				<email>{email.text}</email>
+			</mx:request>
+		</s:HTTPService>
+	</fx:Declarations>
+	
+	<mx:Form horizontalCenter="-100" verticalCenter="-233">
+		<mx:FormItem label="First Name" fontSize="12">
+			<mx:TextInput id="first"/>
+		</mx:FormItem>
+		<mx:FormItem label="Last Name" fontSize="12">
+			<mx:TextInput id="last"/>
+		</mx:FormItem>
+		<mx:FormItem label="Email" fontSize="12">
+			<mx:TextInput id="email"/>
+		</mx:FormItem>
+		<mx:FormItem>
+			<mx:Button label="Zapisz " click="srv.send()" fontSize="12"/>
+		</mx:FormItem>
+	</mx:Form>
+</s:Application>
