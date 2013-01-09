@@ -1,0 +1,684 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language polish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Zagadnienia na egzamin z przedmiotu: Bezpieczeństwo Systemów Komputerowych,
+ sem.
+ 7
+\end_layout
+
+\begin_layout Section
+Cechy trybów pracy szyfrów blokowych: ECB, CBC, CFB, OFB.
+ 
+\end_layout
+
+\begin_layout Subsection
+ECB - Tryb elektronicznej książki kodowej (electronic codebook).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Ecb_encryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Ecb_decryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+zależny od bloku informacji,
+\end_layout
+
+\begin_layout Itemize
+umożliwia dwa poważne ataki
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nagłówki stereotypowe i zakończenia stereotypowe - Podatność na ataki jest
+ największa na początku i końcu wiadomości, gdzie występują dobrze zdefiniowane
+ nagłówki i stopki zawierają informacje o nadawcy, odbiorcy, dacie, itp.
+\end_layout
+
+\begin_layout Itemize
+Powtórzenie bloku - Przeciwnik może zmodyfikować zaszyfrowaną wiadomość
+ bez znajomości klucza (lub nawet szczegółów działania algorytmu) w ten
+ sposób, aby wyprowadzić w pole zamierzonego odbiorcę.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+błędy: propagacja w obrębie jednego bloku.
+\end_layout
+
+\begin_layout Itemize
+zastosowania: ograniczone - tam, gdzie stosujemy tylko 1-2 bloki informacji,
+ np.
+ szyfrowanie kluczy.
+\end_layout
+
+\begin_layout Subsection
+CBC - Tryb wiązania bloków zaszyfrowanych (cipher block chaining)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Cbc_encryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Cbc_decryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wykorzystuje sprzężenie zwrotne - wynik poprzedniego szyfrowania podawany
+ na wejście kolejnego.
+\end_layout
+
+\begin_layout Itemize
+by uniknąć pojawienia się tych samych początków informacji (nagłówki stereotypow
+e) szyfruje się losowy ciąg zwany ciągiem początkowym, zmienną początkującą
+ lub początkową wartością związania
+\end_layout
+
+\begin_layout Itemize
+szyfrogram zależy od wszystkich poprzednich bloków tekstu jawnego
+\end_layout
+
+\begin_layout Itemize
+propagacja błędów:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+pojedynczy błąd w bloku tekstu jawnego wpłynie na ten blok szyfrogramu i
+ wszystkie kolejne bloki szyfrogramu jednak po odszyfrowaniu zostanie tylko
+ oryginalny błąd
+\end_layout
+
+\begin_layout Itemize
+pojedynczy błąd w szyfrogramie zmienia jeden blok i jeden bit odtworzonego
+ tekstu jawnego
+\end_layout
+
+\begin_layout Itemize
+bloki występujące po drugim nie zawierają wpływu błędu, tak więc tryb CBC
+ jest samo-odtwarzający
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+odszyfrowanie wymaga znajomości poprzedniego bloku szyfrogramu
+\end_layout
+
+\begin_layout Itemize
+jest to standardowy tryb wszystkich prawie protokołów
+\end_layout
+
+\begin_layout Subsection
+CFB
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Cfb_encryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Cfb_decryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Często stosowany w trybie sprzężenia zwrotnego szyfrogramu gdzie dane są
+ szyfrowane w jednostkach mniejszych niż rozmiar bloku.
+\end_layout
+
+\begin_layout Itemize
+szyfrogram zależy od wszystkich poprzednich bloków tekstu jawnego
+\end_layout
+
+\begin_layout Itemize
+należy stosować IV w celu ukrycia typowych początków
+\end_layout
+
+\begin_layout Itemize
+propagacja błędów:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+pojedynczy błąd w bloku tekstu jawnego wpłynie na ten blok szyfrogramu i
+ wszystkie kolejne bloki szyfrogramu jednak po odszyfrowaniu zostanie tylko
+ oryginalny błąd
+\end_layout
+
+\begin_layout Itemize
+błąd pojawi się w rejestrze przesuwnym, gdzie powoduje zniekształcenie szyfrogra
+mu tak długo, aż przesunie się do drugiego końca rejestru.
+ W 8-bitowym trybie CFB pojedynczy błąd zniekształca łącznie 9 bitów szyfrogramu
+\end_layout
+
+\begin_layout Itemize
+po tych błędach system powraca do stanu normalnego - jest samo-odtwarzający
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+pracuje jedynie jako szyfrator przy szyfrowaniu, jak i odszyfrowaniu
+\end_layout
+
+\begin_layout Itemize
+dla mniejszych podbloków pracuje dłużej
+\end_layout
+
+\begin_layout Itemize
+ma własności samo synchronizujące - po n bitach.
+ Dla j=1 nie wymaga żadnej synchronizacji – samo synchronizujący szyfr strumieni
+owy!!!
+\end_layout
+
+\begin_layout Subsection
+OFB
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Ofb_encryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Ofb_decryption.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tryb sprzężenia zwrotnego wyjściowego - dane dla następnego bloku pobierane
+ bezpośrednio z szyfratora.
+ Ta metoda nosi niekiedy nazwę trybu wewnętrznego sprzężenia zwrotnego,
+ ponieważ mechanizm sprzężenia zwrotnego jest niezależny od zarówno strumieni
+ tekstu jawnego jak i szyfrogramu.
+\end_layout
+
+\begin_layout Itemize
+brak powiązania kolejnych bloków tekstu jawnego
+\end_layout
+
+\begin_layout Itemize
+należy stosować IV w celu ukrycia typowych początków
+\end_layout
+
+\begin_layout Itemize
+propagacja błędów:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+brak
+\end_layout
+
+\begin_layout Itemize
+pojedynczy błąd jednobitowy w szyfrogramie powoduje pojedynczy błąd bitowy
+ w odtworzonym tekście jawnym
+\end_layout
+
+\begin_layout Itemize
+fatalne skutki ma utrata synchronizacji
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+pracuje jedynie jako szyfrator przy szyfrowaniu, jak i odszyfrowaniu
+\end_layout
+
+\begin_layout Itemize
+dla mniejszych podbloków pracuje dłużej
+\end_layout
+
+\begin_layout Itemize
+strumień klucza niezależny od wiadomości - może być wcześniej wyliczony
+\end_layout
+
+\begin_layout Itemize
+Problemy ochrony związane z trybem OFB:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+OFB powinien być używany jedynie wtedy, kiedy rozmiar sprzężenia zwrotnego
+ jest taki sam co rozmiar bloku
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Porównaj konstrukcje szyfrów blokowych SPN i FN, uwzględniając: szyfrowanie,
+ odszyfrowanie, liczbę rund.
+ 
+\end_layout
+
+\begin_layout Subsection
+Sieć permutacyjno-podstawieniowa (SPN)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Substitution-permutation_network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sieć permutacyjno-podstawieniowa (Substitution-permutation network) to seria
+ połączonych matematycznych operacji użytych w szyfrach blokowych takich
+ jak AES.
+\end_layout
+
+\begin_layout Standard
+Składają się z zestawu naprzemiennie stosowanych rund lub warstw składających
+ się z bloków zastępujących (substitution boxes - S-boxes) i permutacyjnych
+ (permutation boxes - P-boxes).
+ Bloki te transformują bloki bitów wejściowych na bloki bitów wyjściowych.
+ Zazwyczaj klucz jest indukowany w każdej rundzie, często stosowane są klucze
+ generowane z klucza głównego.
+ W niektórych projektach klucze konfigurują bloki.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 360px-SubstitutionPermutationNetwork2.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+S-skrzynka - skrzynki podstawieniowe
+\end_layout
+
+\begin_layout Standard
+Zastępuje blok bitów wejściowych na blok bitów wyjściowych w układzie jeden-do-j
+eden tak by operacja była odwracalna (rozszyfrowywanie).
+ 
+\end_layout
+
+\begin_layout Standard
+Bloki te są tak projektowane by zmiana jednego bitu na wejściu zmieniła
+ wartość co najmniej połowy bitów wyjściowych a wartość pojedynczego bitu
+ wyjściowego zależy od wartości wszystkich bitów wejściowych.
+\end_layout
+
+\begin_layout Subsubsection
+P-skrzynka
+\end_layout
+
+\begin_layout Standard
+Blok ten dokonuje permutacji bitów wejściowych tak by bity z jednego bloku
+ S-box trafiły do jak największej ilości bloków S-box w następnej rundzie.
+\end_layout
+
+\begin_layout Subsubsection
+Indukcja klucza
+\end_layout
+
+\begin_layout Standard
+Typowo po każdej rundzie indukowany jest klucz (jego część lub wygenerowany
+ na jego podstawie podklucz) za pomocą operacji matematycznej - najczęściej
+ XOR.
+\end_layout
+
+\begin_layout Subsubsection
+Zalety
+\end_layout
+
+\begin_layout Standard
+Blokowa konstrukcja umożliwia wykonywanie operacji równolegle na wielu procesora
+ch.
+\end_layout
+
+\begin_layout Subsection
+Sieć Feistela (FN)
+\end_layout
+
+\begin_layout Standard
+Sieć Feistela jest to symetryczna konstrukcja ułatwiająca budowę blokowych
+ algorytmów szyfrowania.
+ Pozwala na szyfrowanie i deszyfrowanie informacji tym samym algorytmem,
+ mimo iż funkcja nie jest odwracalna.
+ Sieć Feistela generuje z tekstu jawnego szyfrogram, a z szyfrogramu tekst
+ jawny.
+ W ten sposób konstruowanie algorytmów szyfrujących znacznie się uprościło,
+ ponieważ nie trzeba się troszczyć o odwracalność funkcji .
+ 
+\end_layout
+
+\begin_layout Standard
+Tekst jawny dzieli się na dwa równe bloki , .
+ Funkcja jest właściwym algorytmem szyfrującym.
+ Jako wynik otrzymuje się szyfrogram.
+ Numer kolejnej rundy oznaczany jest indeksem ; to oznacza iż wynik szyfrowania
+ jest ponownie-krotnie szyfrowany, co polepsza jakość szyfrowania.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Feistel_cipher_diagram_en.svg.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Co to jest, do czego służy certyfikat klucza publicznego i dlaczego ma tak
+ istotne znaczenie? 
+\end_layout
+
+\begin_layout Standard
+To podpisana przez poświadczającego (Certification Authority) struktura
+ danych zawierająca:
+\end_layout
+
+\begin_layout Itemize
+klucz publiczny,
+\end_layout
+
+\begin_layout Itemize
+identyfikator właściciela klucza,
+\end_layout
+
+\begin_layout Itemize
+okres ważności,
+\end_layout
+
+\begin_layout Itemize
+numer seryjny,
+\end_layout
+
+\begin_layout Itemize
+dane wystawcy certyfikatu,
+\end_layout
+
+\begin_layout Itemize
+informacje o algorytmie podpisu,
+\end_layout
+
+\begin_layout Itemize
+podpis cyfrowy poświadczającego,
+\end_layout
+
+\begin_layout Itemize
+ew.
+ inne informacje.
+\end_layout
+
+\begin_layout Standard
+Certyfikat klucza publicznego wykorzystuje podpis cyfrowy by połączyć klucz
+ publiczny z podmiotem - np.
+ imię i nazwisko osoby bądź nazwa organizacji, ich adres itp.
+\end_layout
+
+\begin_layout Standard
+Sprawdzenie poprawności klucza (weryfikacja certyfikatu) wymaga znajomości
+ klucza publicznego (certyfikatu) CA i zaufania do niego.
+\end_layout
+
+\begin_layout Section
+Co to jest PKI i jaką pełni rolę? 
+\end_layout
+
+\begin_layout Standard
+Zarządzanie kluczami (PKI - Public Key Infrastructure) to zestaw sprzętu,
+ oprogramowania, ludzi, polityki i procedur potrzebnych do tworzenia, zarządzani
+a, dystrybucji, wykorzystania, przechowywania i unieważniania cyfrowych
+ certyfikatów.
+\end_layout
+
+\begin_layout Standard
+Obejmuje:
+\end_layout
+
+\begin_layout Itemize
+wytwarzanie kluczy,
+\end_layout
+
+\begin_layout Itemize
+poświadczanie (certyfikaty),
+\end_layout
+
+\begin_layout Itemize
+uzgadnianie (ustanawianie), wymiana,
+\end_layout
+
+\begin_layout Itemize
+stosowanie (dobór) i użytkowanie,
+\end_layout
+
+\begin_layout Itemize
+przechowywanie, w tym przekazywanie TTP i organom prawnym (escrow),
+\end_layout
+
+\begin_layout Itemize
+niszczenie i unieważnianie.
+\end_layout
+
+\begin_layout Standard
+PKI to infrastruktura pozwalająca na przypisanie klucza publicznego do podmiotu
+ za pośrednictwem urzędów poświadczających klucze publiczne (CA).
+\end_layout
+
+\begin_layout Section
+Podaj krótko przebieg protokołów: podpisu elektronicznego oraz przesyłania
+ wiadomości razem z kluczem szyfrującym.
+ 
+\end_layout
+
+\begin_layout Section
+Porównaj sposoby uwierzytelniania dokumentów z użyciem technik symetrycznych
+ i asymetrycznych oraz z udziałem (lub bez udziału) TTP.
+ 
+\end_layout
+
+\begin_layout Section
+Scharakteryzuj typy i zadania zapór ogniowych.
+ 
+\end_layout
+
+\begin_layout Section
+Na czym polega analiza ryzyka względem kosztów i gdzie ją stosujemy w polityce
+ bezpieczeństwa? 
+\end_layout
+
+\begin_layout Section
+Opisz trzy polityki bezpieczeństwa w zarządzaniu personelem.
+ 
+\end_layout
+
+\begin_layout Section
+Scharakteryzuj poziomy dojrzałości zarządzania bezpieczeństwem.
+\end_layout
+
+\begin_layout Section
+Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
+ Wymień plan audytu i czynności audytora.
+ 
+\end_layout
+
+\begin_layout Section
+Podaj cechy modeli kontroli dostępu: DAC, MAC, przejmij-przekaż, Wooda,
+ Jajodhi-Sadhu, RBAC.
+ 
+\end_layout
+
+\begin_layout Section
+Charakterystyka typów systemów IDS.
+ Dlaczego nie są w pełni skuteczne? 
+\end_layout
+
+\begin_layout Section
+Porównaj sposoby zabezpieczania poczty elektronicznej.
+ 
+\end_layout
+
+\begin_layout Section
+Jakie cechy techniczne ma dobry protokół uwierzytelniania? 
+\end_layout
+
+\begin_layout Section
+Na czym polega dowód o wiedzy zerowej? Podaj jego techniczne elementy.
+ 
+\end_layout
+
+\begin_layout Section
+Czy protokół Kerberos jest bezpieczny? Uzasadnij swoją odpowiedź.
+ 
+\end_layout
+
+\begin_layout Section
+Jak zapewniamy bezpieczeństwo platform obliczeniowych? 
+\end_layout
+
+\begin_layout Section
+Opisz 4 etapy zabezpieczania serwisów www.
+ 
+\end_layout
+
+\begin_layout Section
+Jak wygląda podwójny podpis cyfrowy i gdzie jest stosowany? 
+\end_layout
+
+\begin_layout Section
+Na czym polega bezpieczeństwo notariusza cyfrowego? Wymień 4 elementy i
+ krótko uzasadnij.
+ 
+\end_layout
+
+\begin_layout Section
+Co to jest protokół łączący? Dlaczego i gdzie go stosujemy.
+ Podaj przykład.
+ 
+\end_layout
+
+\begin_layout Section
+Co to jest SSL/TSL? Podaj krótką charakterystykę i części składowe.
+ 
+\end_layout
+
+\begin_layout Section
+Jak przebiega atak typu Distributed D-o-S? Podaj aktorów i fazy ataku.
+\end_layout
+
+\end_body
+\end_document
