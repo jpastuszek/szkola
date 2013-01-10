@@ -541,9 +541,9 @@ Co to jest PKI i jaką pełni rolę?
 
 \begin_layout Standard
 Zarządzanie kluczami (PKI - Public Key Infrastructure) to zestaw sprzętu,
- oprogramowania, ludzi, polityki i procedur potrzebnych do tworzenia, zarządzani
-a, dystrybucji, wykorzystania, przechowywania i unieważniania cyfrowych
- certyfikatów.
+ oprogramowania, ludzi i procedur potrzebnych do tworzenia, zarządzania,
+ dystrybucji, wykorzystania, przechowywania i unieważniania cyfrowych certyfikat
+ów.
 \end_layout
 
 \begin_layout Standard
@@ -579,10 +579,124 @@ PKI to infrastruktura pozwalająca na przypisanie klucza publicznego do podmiotu
  za pośrednictwem urzędów poświadczających klucze publiczne (CA).
 \end_layout
 
+\begin_layout Itemize
+X.509
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+hierarchiczny system urzędów certyfikujących (CA)
+\end_layout
+
+\begin_layout Itemize
+tylko CA mogą podpisywać certyfikaty
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+PGP
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+sieć zaufania (web of trust)
+\end_layout
+
+\begin_layout Itemize
+wszyscy mogą podpisywać certyfikaty
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Podaj krótko przebieg protokołów: podpisu elektronicznego oraz przesyłania
  wiadomości razem z kluczem szyfrującym.
  
+\end_layout
+
+\begin_layout Subsection
+Podpis elektroniczny
+\end_layout
+
+\begin_layout Paragraph*
+Tworzenie
+\end_layout
+
+\begin_layout Itemize
+z wiadomości wyliczany jest skrót za pomocą funkcji skrótu
+\end_layout
+
+\begin_layout Itemize
+tworzony jest podpis po przez zaszyfrowanie skrótu prywatnym kluczem nadawcy
+ wiadomości
+\end_layout
+
+\begin_layout Paragraph*
+Weryfikacja
+\end_layout
+
+\begin_layout Itemize
+z otrzymanej wiadomości jest wyliczany skrót za pomocą funkcji skrótu
+\end_layout
+
+\begin_layout Itemize
+załączony zaszyfrowany skrót jest rozszyfrowywany za pomocą publicznego
+ klucza zawartego w certyfikacie
+\end_layout
+
+\begin_layout Itemize
+wyliczony skrót jest porównany z rozszyfrowanym skrótem - jeżeli są identyczne
+ wiadomość nie została zmieniona
+\end_layout
+
+\begin_layout Subsection
+Przesyłanie wiadomości razem z kluczem szyfrującym
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 575px-PGP_diagram.svg.png
+	scale 50
+	groupId diagram
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Szyfrowanie
+\end_layout
+
+\begin_layout Itemize
+generowany jest losowy klucz
+\end_layout
+
+\begin_layout Itemize
+dane są szyfrowane kluczem
+\end_layout
+
+\begin_layout Itemize
+klucz jest szyfrowany kluczem publicznym
+\end_layout
+
+\begin_layout Itemize
+zaszyfrowane dane oraz zaszyfrowany klucz stanowią wiadomość
+\end_layout
+
+\begin_layout Paragraph*
+Rozszyfrowanie
+\end_layout
+
+\begin_layout Itemize
+z wiadomości pobrany jest zaszyfrowany klucz
+\end_layout
+
+\begin_layout Itemize
+klucz jest rozszyfrowany przy pomocy klucza prywatnego odbiorcy
+\end_layout
+
+\begin_layout Itemize
+zaszyfrowane dane są rozszyfrowywane za pomocą rozszyfrowanego klucza
 \end_layout
 
 \begin_layout Section
@@ -591,14 +705,208 @@ Porównaj sposoby uwierzytelniania dokumentów z użyciem technik symetrycznych
  
 \end_layout
 
+\begin_layout Subsection
+Uwierzytelnianie z użyciem technik symetrycznych z udziałem TTP
+\end_layout
+
+\begin_layout Enumerate
+Alice, aby połączyć się z Bobem, kieruje zamówienie na klucz sesyjny do
+ Trenta.
+\end_layout
+
+\begin_layout Enumerate
+Trent generuje losowy klucz sesyjny.
+ Szyfruje następnie dwie jego kopie: jedną w postaci klucza Alice i drugą
+ jako klucz Boba.
+ Trent wysyła obie kopie Alice.
+\end_layout
+
+\begin_layout Enumerate
+Alice deszyfruje swoją kopię klucza sesyjnego.
+\end_layout
+
+\begin_layout Enumerate
+Alice przesyła Bobowi jego kopię klucza sesyjnego.
+\end_layout
+
+\begin_layout Enumerate
+Bob deszyfruje swoją kopię klucza sesyjnego.
+\end_layout
+
+\begin_layout Enumerate
+Oboje, Alice i Bob, używają klucza sesyjnego, aby bezpiecznie komunikować
+ się ze sobą.
+\end_layout
+
+\begin_layout Standard
+Dobry protokół uwierzytelniania posiada:
+\end_layout
+
+\begin_layout Itemize
+losowo wygenerowane liczby na czas sesji wykorzystane do weryfikacji wiadomości
+\end_layout
+
+\begin_layout Itemize
+znaczniki czasu zapobiegające wykorzystaniu 
+\begin_inset Quotes eld
+\end_inset
+
+starych
+\begin_inset Quotes erd
+\end_inset
+
+ wiadomości
+\end_layout
+
+\begin_layout Itemize
+sekret znany tylko stronie komunikującej się i serwerowi TTP
+\end_layout
+
+\begin_layout Subsection
+Uwierzytelnianie z użyciem technik asymetrycznych bez udziału TTP
+\end_layout
+
+\begin_layout Enumerate
+Alice pobiera klucz jawny Boba z KDC.
+\end_layout
+
+\begin_layout Enumerate
+Alice generuje losowy klucz sesyjny k, szyfruje go, używając klucza jawnego
+ Boba i przesyła Bobowi.
+\end_layout
+
+\begin_layout Enumerate
+Aby odtworzyć klucz sesyjny, Bob deszyfruje otrzymaną wiadomość za pomocą
+ swego klucza prywatnego.
+\end_layout
+
+\begin_layout Enumerate
+Oboje szyfrują przesyłane wiadomości, używając tego samego klucza sesyjnego.
+\end_layout
+
 \begin_layout Section
 Scharakteryzuj typy i zadania zapór ogniowych.
+\end_layout
+
+\begin_layout Subsection
+Typy zabór
+\end_layout
+
+\begin_layout Itemize
+zapory bezkontekstowe - które stosują brutalną blokadę pakietów przychodzących
+ z zewnątrz sieci korporacyjnej,
+\end_layout
+
+\begin_layout Itemize
+zapory kontekstowe 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+identyfikacja źródła i przeznaczenia przesyłanej informacji,
+\end_layout
+
+\begin_layout Itemize
+rozpoznawanie użytkowników sesji,
+\end_layout
+
+\begin_layout Itemize
+przyjęcie bądź odrzucenie sesji zgodnie z przyjętymi zasadami,
+\end_layout
+
+\begin_layout Itemize
+monitorowanie, śledzenie i alarmowanie,
+\end_layout
+
+\begin_layout Itemize
+konwersja adresów sieciowych,
+\end_layout
+
+\begin_layout Itemize
+szyfrowanie danych
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+bramy (gateways, proxy gateways) - działają na poziomie aplikacji
+\end_layout
+
+\begin_layout Itemize
+strażnicy (guards)
+\end_layout
+
+\begin_layout Subsection
+Zadania
+\end_layout
+
+\begin_layout Itemize
+Filtrowanie pakietów, czyli sprawdzanie pochodzenia pakietów i akceptowanie
+ pożądanych
+\end_layout
+
+\begin_layout Itemize
+Zapory kontekstowe umożliwiają analizę zdarzeń i na tej podstawie budowę
+ indywidualnych strategii zabezpieczeń dla wydzielonych fragmentów sieci
+ wewnętrznej - Intranetu.
+\end_layout
+
+\begin_layout Itemize
+Stosowanie algorytmów identyfikacji użytkownika (hasła, cyfrowe certyfikaty).
  
+\end_layout
+
+\begin_layout Itemize
+Zabezpieczanie programów obsługujących niektóre protokoły (np.
+ FTP, TELNET).
+ 
+\end_layout
+
+\begin_layout Itemize
+Ważną funkcją zapory sieciowej jest monitorowanie ruchu sieciowego i zapisywanie
+ najważniejszych zdarzeń do dziennika.
 \end_layout
 
 \begin_layout Section
 Na czym polega analiza ryzyka względem kosztów i gdzie ją stosujemy w polityce
  bezpieczeństwa? 
+\end_layout
+
+\begin_layout Standard
+Podczas badania ryzyka analizie podlega ważona ocena różnicy pomiędzy prawdopodo
+bnymi stratami, a kosztem podjęcia środków zaradczych przeciwdziałających
+ niechcianemu zdarzeniu.
+\end_layout
+
+\begin_layout Itemize
+Krok 1 - Określenie zagrożeń, ich częstości i wielkości strat.
+\end_layout
+
+\begin_layout Itemize
+Krok 2 – Wybór optymalnej strategii.
+\end_layout
+
+\begin_layout Paragraph*
+Etapy realizacji PB
+\end_layout
+
+\begin_layout Enumerate
+Planowanie PB,
+\end_layout
+
+\begin_layout Enumerate
+Analiza ryzyka,
+\end_layout
+
+\begin_layout Enumerate
+Analiza kosztów względem korzyści,
+\end_layout
+
+\begin_layout Enumerate
+Tworzenie PB na miarę zapotrzebowań,
+\end_layout
+
+\begin_layout Enumerate
+Wprowadzanie PB w życie.
 \end_layout
 
 \begin_layout Section
@@ -627,6 +935,123 @@ Charakterystyka typów systemów IDS.
  Dlaczego nie są w pełni skuteczne? 
 \end_layout
 
+\begin_layout Subsection
+Klasyfikacja systemów wykrywania 
+\end_layout
+
+\begin_layout Paragraph*
+pod kątem sposobu przetwarzania informacji
+\end_layout
+
+\begin_layout Itemize
+statystyczne (progowe- nieefektywne i trudne w realizacji, ukierunkowane
+ - metryki (liczba loginów, wielkość i częstość przerw w pracy, intensywność
+ korzystania z zasobów));
+\end_layout
+
+\begin_layout Itemize
+związane z funkcją, sposobem działania użytkownika (wykrywanie anomalii
+ w zachowaniu - w oparciu o historię, wzorce zachowań itp., wykrywanie ataków
+ - wymaga ich wcześniejszej identyfikacji cech, dróg co jest dużą trudnością)
+ ,
+\end_layout
+
+\begin_layout Itemize
+modele sieci neuronowych (wykrywanie anomalii w zachowaniu się komputera
+ i ludzi na podstawie różnorodnych modeli wzorców zachowania się (ludzi
+ i systemów i wykrywania odchyleń od ich),
+\end_layout
+
+\begin_layout Itemize
+modele oparte o algorytmy genetyczne.
+\end_layout
+
+\begin_layout Paragraph*
+z punktu widzenia zasady działania:
+\end_layout
+
+\begin_layout Itemize
+wykrywanie zagrożenia na podstawie stwierdzenia obecności charakterystycznych
+ cech ataku – detekcja tzw.
+ sygnaturowa,
+\end_layout
+
+\begin_layout Itemize
+wykrywanie zagrożenia na podstawie zmian w tzw.
+ normalnym zachowaniu się systemu (wykrywanie anomalii w „szumie”).
+\end_layout
+
+\begin_layout Paragraph*
+inna klasyfikacja:
+\end_layout
+
+\begin_layout Itemize
+IDS sieciowe (operujące na segmentach sieci),
+\end_layout
+
+\begin_layout Itemize
+IDS serwera (działające na rzecz wybranego serwera).
+\end_layout
+
+\begin_layout Subsection
+Cele
+\end_layout
+
+\begin_layout Itemize
+głównym zadaniem jest monitorowanie sieci lub serwera w celu wykrycia jakiejkolw
+iek próby przełamania zabezpieczeń
+\end_layout
+
+\begin_layout Itemize
+rozróżnienie objawów napaści, aby poprawnie zidentyfikować wszystkie rzeczywiste
+ ataki przy jednoczesnym braku fałszywych alarmów
+\end_layout
+
+\begin_layout Subsection
+Problemy ze skutecznością
+\end_layout
+
+\begin_layout Standard
+Kluczowy problem związany z zaprojektowaniem IDS to takie ustawienie „czułości”
+ systemu, by wyeliminować fałszywe alarmy jednocześnie nie upośledzając
+ funkcji detekcyjnych.
+\end_layout
+
+\begin_layout Paragraph*
+IDS sygnaturowe
+\end_layout
+
+\begin_layout Itemize
+aby system mógł działać, musi znać dokładny opis każdego ataku (wzorzec).
+\end_layout
+
+\begin_layout Itemize
+złożoność takich ataków zmienia się,
+\end_layout
+
+\begin_layout Itemize
+powstają nowe typy zagrożeń, dotychczas nie zidentyfikowane i nie opisane.
+\end_layout
+
+\begin_layout Itemize
+jeśli zdarzenie nie mające charakteru zagrożenia daje taki sam obraz jak
+ pewne zagrożenie, to wówczas będzie wzbudzony fałszywy alarm.
+\end_layout
+
+\begin_layout Paragraph*
+IDS wykrywające anomalie
+\end_layout
+
+\begin_layout Itemize
+duża trudność lub niekiedy niemożność określenia cech charakterystycznych
+ takiego normalnego stanu systemu,
+\end_layout
+
+\begin_layout Itemize
+system musi uczyć się normalnego zachowania się systemu wraz z jego fluktuacjami
+, bo inaczej normalne zachowanie może być potraktowane błędnie jako atak.
+\end_layout
+
 \begin_layout Section
 Porównaj sposoby zabezpieczania poczty elektronicznej.
  
@@ -652,7 +1077,26 @@ Jak zapewniamy bezpieczeństwo platform obliczeniowych?
 
 \begin_layout Section
 Opisz 4 etapy zabezpieczania serwisów www.
- 
+\end_layout
+
+\begin_layout Standard
+Działania w 4 kierunkach zabezpieczeń:
+\end_layout
+
+\begin_layout Itemize
+zagrożenia fizyczne,
+\end_layout
+
+\begin_layout Itemize
+personelu,
+\end_layout
+
+\begin_layout Itemize
+proceduralne (protokolarne),
+\end_layout
+
+\begin_layout Itemize
+techniczne.
 \end_layout
 
 \begin_layout Section
