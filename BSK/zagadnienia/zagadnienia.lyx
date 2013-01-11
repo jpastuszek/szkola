@@ -706,6 +706,148 @@ Porównaj sposoby uwierzytelniania dokumentów z użyciem technik symetrycznych
 \end_layout
 
 \begin_layout Subsection
+Symetryczne 
+\end_layout
+
+\begin_layout Standard
+Uwierzytelnianie w obrębie grupy osób, które sobie ufają.
+ 
+\end_layout
+
+\begin_layout Standard
+Wiarygodność źródła jest zapewniana przez: 
+\end_layout
+
+\begin_layout Enumerate
+Obliczenia skrótu poprzez: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+MDC (funkcje skrótu bezkluczowe) - stosować funkcje dobrej jakości: SHA1,
+ RIPEMD-160
+\end_layout
+
+\begin_layout Itemize
+MAC (skrót tajny z kluczem K) – nie stosować tych samych kluczy do do MAC
+ i szyfrowania danych 
+\end_layout
+
+\begin_layout Itemize
+CBC-MAC 
+\end_layout
+
+\begin_layout Itemize
+H-MAC 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Kryptograficzną ochronę skrótu (utajnienie algorytmu skrótu, wartości skrótu,
+ lub autentyczność wartości skrótu – podpis).
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+W MDC szyfr za pomocą klucza tajnego (współdzielonego przez grupę użytkowników
+ lub użytkownika i TTP - może ocenić i zadecydować o ważności dokumentu).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Przy MAC może wystąpić dodatkowe szyfrowanie.
+ Problem - duża liczba kluczy, ograniczone zastosowanie.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Z TTP strony współdzielą klucze z TTP.
+ TTP odbiera szyfrogram od A, odszyfrowuje, szyfruje go ponownie kluczem
+ współdzielonym z B i wysyła do B.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Bez TTP Strony współdzielą jeden wspólny klucz.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Asymetryczne (za pomocą certyfikatów)
+\end_layout
+
+\begin_layout Standard
+Wykorzystanie pary kluczy: klucz prywatny (tajny) i publiczny.
+\end_layout
+
+\begin_layout Standard
+Klucz publiczny może być przesłany za pośrednictwem kanałów niezabezpieczonych.
+ 
+\end_layout
+
+\begin_layout Standard
+Szyfrowanie wiadomości odbywa się przy użyciu klucza publicznego, który
+ jednak nie może posłużyć do jej odszyfrowania.
+ Odszyfrowanie może nastąpić jedynie przy użyciu klucza prywatnego.
+ 
+\end_layout
+
+\begin_layout Standard
+A wysyła do B: 
+\end_layout
+
+\begin_layout Enumerate
+A pyta o klucz publiczny
+\end_layout
+
+\begin_layout Enumerate
+B generuje parę kluczy: publiczny e i prywatny d
+\end_layout
+
+\begin_layout Enumerate
+B wysyła klucz publiczny e dowolnym kanałem
+\end_layout
+
+\begin_layout Enumerate
+A szyfruje wiadomość m przy użyciu klucza e i znanego powszechnie algorytmu
+ E
+\end_layout
+
+\begin_layout Enumerate
+A wysyła zaszyfrowaną wiadomość c = Ee(m) dowolnym kanałem
+\end_layout
+
+\begin_layout Enumerate
+B odszyfrowuje wiadomość Ed(c) = m przy zastosowaniu swojego klucza prywatnego
+ d 
+\end_layout
+
+\begin_layout Paragraph*
+Z TTP 
+\end_layout
+
+\begin_layout Standard
+CA potwierdza autentyczność certyfikatów komunikujących się stron.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Bez TTP 
+\end_layout
+
+\begin_layout Standard
+strony wymieniają się certyfikatami, muszą sobie wzajemnie ufać 
+\end_layout
+
+\begin_layout Standard
+Zalety: Ilość kluczy jest zdecydowanie niższa niż w technikach symetrycznych
+ Zarządzanie kluczami pozwala na obecność zaufanej trzeciej strony Nie trzeba
+ wymieniać często kluczy Wady: Wolniejsze, duże klucze
+\end_layout
+
+\begin_layout Subsection
 Uwierzytelnianie z użyciem technik symetrycznych z udziałem TTP
 \end_layout
 
@@ -927,7 +1069,164 @@ Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
 \begin_layout Section
 Podaj cechy modeli kontroli dostępu: DAC, MAC, przejmij-przekaż, Wooda,
  Jajodhi-Sadhu, RBAC.
- 
+\end_layout
+
+\begin_layout Paragraph*
+DAC
+\end_layout
+
+\begin_layout Standard
+określa podstawowe metody kontroli dostępu do obiektów w systemie plików.
+ Administratorem uprawnień jest sys_admin lub właściciel obiektu (pliku).
+ Rozbudowana wersją DAC jest model ACL – list kontroli dostępu.
+\end_layout
+
+\begin_layout Paragraph*
+MAC
+\end_layout
+
+\begin_layout Standard
+ochrania i zabezpiecza procesy, dane i urządzenia systemowe przed szkodliwym
+ nadużyciem/wykorzystaniem za pomocą tzw.
+ etykiet.
+ Właściciel obiektu po jego utworzeniu może nie mieć prawa do późniejszego
+ np.
+ odczytu!
+\end_layout
+
+\begin_layout Paragraph*
+RBAC
+\end_layout
+
+\begin_layout Standard
+ogranicza dostęp do zasobów na podstawie roli, jaką użytkownik pełni w systemie.
+ Przystosowany do organizacji, w której działa.
+ Ukierunkowany na czynności użytkownika.
+ Może wykorzystywać DAC, MAC i inne modele.
+\end_layout
+
+\begin_layout Paragraph*
+przejmij - przekaż
+\end_layout
+
+\begin_layout Itemize
+Rozszerzenie modelu macierzowego (DAC) – ujmuje kwestie delegacji i przejmowania
+ uprawnień.
+\end_layout
+
+\begin_layout Itemize
+Informacja o uprawnieniach jest pamiętana w postaci grafu, który opisuje
+ wszystkie powiązania dot.
+ przepływu informacji.
+\end_layout
+
+\begin_layout Itemize
+Podmiot ma (w tym modelu!) uprawnienia do obiektu albo innego podmiotu.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Przekaż - podmiot x przekazuje uprawnienie h, jakie ma do z (obiektu lub
+ podmiotu), obiektowi lub podmiotowi y pod warunkiem, że x ma uprawnienie
+ g do przekazywania uprawnień.
+\end_layout
+
+\begin_layout Itemize
+Przejmij - podmiot x przekazuje uprawnienie h (pozbywając się uprawnienia
+ h do obiektu z), jakie ma do z (obiektu lub podmiotu), obiektowi lub podmiotowi
+ y pod warunkiem, że y ma uprawnienie t do przejęcia uprawnień.
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph*
+Wooda
+\end_layout
+
+\begin_layout Standard
+Skierowany na realizację polityki bezpieczeństwa w środowisku baz danych.
+\end_layout
+
+\begin_layout Itemize
+poziomy
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Zewnętrzny,
+\end_layout
+
+\begin_layout Itemize
+Konceptualny,
+\end_layout
+
+\begin_layout Itemize
+Wewnętrzny.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+podmioty to:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Użytkownicy,
+\end_layout
+
+\begin_layout Itemize
+administratorzy uprawnień.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+obiekty to 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+tablice bazy danych
+\end_layout
+
+\begin_layout Itemize
+kolumny tablic
+\end_layout
+
+\begin_layout Itemize
+tablice wirtualne (widoki)
+\end_layout
+
+\begin_layout Itemize
+ew.
+ funkcje.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Dla poziomu zewnętrznego i konceptualnego są definiowane reguły dostępu,
+ które muszą być niesprzeczne.
+\end_layout
+
+\begin_layout Paragraph*
+Jajodhi-Sadhu
+\end_layout
+
+\begin_layout Standard
+Kontrola dostępu MAC dla baz danych.
+\end_layout
+
+\begin_layout Itemize
+Do modelu relacyjnego są wprowadzone atrybuty klasyfikacyjne zw.
+ etykietami bezpieczeństwa: jawny < poufny < tajny < ściśle tajny
+\end_layout
+
+\begin_layout Itemize
+Schemat relacyjny wielopoziomowy: Każdy atrybut oprócz wartości ma nadany
+ atrybut klasyfikacyjny, a ponadto cała krotka ma również taki atrybut.
+\end_layout
+
+\begin_layout Itemize
+Polityka bezpieczeństwa to kontrola dostępu do realizacji operacji typu
+ dołącz, aktualizuj, usuń na relacjach wielopoziomowych.
 \end_layout
 
 \begin_layout Section
@@ -1057,12 +1356,140 @@ Porównaj sposoby zabezpieczania poczty elektronicznej.
  
 \end_layout
 
+\begin_layout Enumerate
+zaufanie
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - sieciowa dystrybucja zaufania
+\end_layout
+
+\begin_layout Enumerate
+PEM - hierarchiczna dystrybucja kluczy
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Zastosowa-nia docelowe
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - Zaprojektowano do ochrony poczty elektronicznej, ale także jest bardzo
+ użyteczny do zabezpieczania wybranych plików.
+ Prywatność uważa się za co najmniej równie ważną jak uwierzytelnianie.
+\end_layout
+
+\begin_layout Enumerate
+PEM - zawsze projektowano specyficznie do pracy z pocztą elektroniczną.
+ Uwierzytelnianie jest ważniejsze od prywatności (nie jest możliwe wysłanie
+ wiadomości PEM, która nie jest podpisana).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Szyfrowanie
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - może pod-pisać wiadomość nieszyfrowaną; może szyfrować wiadomości
+ niepodpisane
+\end_layout
+
+\begin_layout Enumerate
+PEM - może podpisać wiadomość nieszyfrowaną; nie jest możliwe wysłanie wiadomo-ś
+ci, która jest nie podpisana
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Wytwarzanie kluczy
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - Użytkownik wytwarza swoją własną parę kluczy
+\end_layout
+
+\begin_layout Enumerate
+PEM - Certyfikaty według standardu X.509 są wytwarzane przez użytkownika
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ukrywanie info o podpisie
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - Niemożliwe jest sprawdzenie podpisu PGP, jeżeli wiadomość jest nadal
+ zaszyfrowana
+\end_layout
+
+\begin_layout Enumerate
+PEM - Możliwe jest sprawdzenie podpisu PEM, nawet jeśli wiadomość jest szyfrowan
+a
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Dystrybucja kluczy
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - Klucze jawne PGP typowo rozprowadza się pocztą elektroniczną, za pomocą
+ sieciowych biuletynów informacyjnych lub serwerów kluczy opartych na poczcie
+ elektronicznej.
+ W celu przeciwdziałania sabotażom klucze są podpisywane przez trzecie strony
+ - innych użytkowników.
+\end_layout
+
+\begin_layout Enumerate
+PEM - CA jest obdarzoną powszech-nym zaufaniem (TTP) bazą kluczy jawnych.
+ Klucze jawne PEM mogą być rozprowadzane za pomocą dowolnych środków, zwykle
+ pocztą elektroniczną lub za pomocą przeglądania katalogów zbudowanych w
+ oparciu o standard X.500.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Unieważnianie kluczy
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PGP - Dystrybucja kluczy jest doraźna i w znacznej części na drodze ustnej.
+ W tej sytuacji niemożliwe jest zagwarantowanie unieważnienia certyfikatu,
+ jeżeli jest on skompromitowany.
+\end_layout
+
+\begin_layout Enumerate
+PEM - Listy unieważnień certyfikatów (CRL) są zachowane w katalogach typu
+ X.500 lub w skrzynkach pocztowych utrzymywanych przez każdy urząd typu PCA
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Jakie cechy techniczne ma dobry protokół uwierzytelniania? 
 \end_layout
 
 \begin_layout Section
 Na czym polega dowód o wiedzy zerowej? Podaj jego techniczne elementy.
+ 
+\end_layout
+
+\begin_layout Standard
+Celem protokołu jest uwierzytelnienie się podmiotu A przez wykazanie się
+ znajomością sekretu S (Związanego z A za pomocą autentycznych, publicznie
+ dostępnych danych) wobec każdego podmiotu weryfikującego B, bez ujawniania
+ żadnych informacji o S nieznanych podmiotowi B lub możliwych do obliczenia
+ przez niego jeszcze przed wykonaniem protokołu.
+ Bezpieczeństwo jest oparte na trudności obliczenia pierwiastka kwadratowego
+ Modulo duża złożona liczba całkowita B o nieznanym rozkładzie na czynniki
+ pierwsze.
  
 \end_layout
 
@@ -1080,27 +1507,44 @@ Opisz 4 etapy zabezpieczania serwisów www.
 \end_layout
 
 \begin_layout Standard
-Działania w 4 kierunkach zabezpieczeń:
+Z logicznego punktu widzenia zabezpieczenia serwera WWW i pracującej na
+ nim aplikacji można pogrupować pod względem umiejscowienia w systemie na
+ cztery grupy:
 \end_layout
 
 \begin_layout Itemize
-zagrożenia fizyczne,
+zabezpieczenia na poziomie aplikacji WWW - np.
+ weryfikowanie użytkowników,
 \end_layout
 
 \begin_layout Itemize
-personelu,
+zabezpieczenia realizowane przez serwer WWW - np.
+ odpowiednia konfiguracja blokująca dostęp do źródeł,
 \end_layout
 
 \begin_layout Itemize
-proceduralne (protokolarne),
+zabezpieczenia realizowane przez system - zapora ogniowa, chroot, tylko
+ niezbędne usługi.
 \end_layout
 
 \begin_layout Itemize
-techniczne.
+Bezpieczeństwo fizyczne serwera - dostęp do pomieszczenia z komputerem.
 \end_layout
 
 \begin_layout Section
 Jak wygląda podwójny podpis cyfrowy i gdzie jest stosowany? 
+\end_layout
+
+\begin_layout Standard
+Informacje o m1-zamówieniu, m2-płatności.
+ Podwójny podpis składa się ze skrótów MD1=(H(m1) i MD2=H(m2), skrótu konkatenac
+ji MD1 i MD2 MDpow=H(concat(MD1,MD2)) podpisanych przez Alice za pomocą
+ jej klucza prywatnego.
+ Alice wysyła do Boba (m1|m2)a=[m1,MD2,MDpow,K'a(MDpow)].
+ Umożliwi to Bbowi uwierzytelnienie Alice i sprawdzenie, że złożyła podpis
+ pod całym komunikatem.
+ Bobowi nie uda się jednak przeczytać m2.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1109,10 +1553,148 @@ Na czym polega bezpieczeństwo notariusza cyfrowego? Wymień 4 elementy i
  
 \end_layout
 
+\begin_layout Standard
+Bezpieczeństwo notariatu opiera się na podpisie złożonym przez zaufaną instytucj
+ę, stwierdzającym, że dany dokument rzeczywiście istniał o danym czasie
+ i na braku możliwości zafałszowania informacji o dacie, zmiany treści,
+ czy przeniesienia podpisu na inny dokument.
+ 
+\end_layout
+
+\begin_layout Itemize
+Użytkownik wysyła skrót wiadomości do notariatu cyfrowego.
+ 
+\end_layout
+
+\begin_layout Itemize
+Na serwerze notariatu gromadzone są skróty dokumentów przesłane w tej samej
+ sekundzie od różnych klientów.
+ 
+\end_layout
+
+\begin_layout Itemize
+Na ich podstawie budowany jest łączny skrót wielu dokumentów z tej samej
+ sekundy, ten dodawany jest do sumy skrótów bazowych w tzw Super skrót bazowy
+ (SHV super hash value) z poprzedniej sekundy dając nowy skrót dla danej
+ sekundy.
+ 
+\end_layout
+
+\begin_layout Itemize
+Takie rozwiązanie daje powiązanie skrótu danego dokumentu z wszystkimi innymi
+ dokumentami z danej chwili i z poprzednimi poświadczeniami dokumentów.
+ 
+\end_layout
+
+\begin_layout Itemize
+W każdej następnej chwili dołączane są kolejne skróty, dając w ten sposób
+ umiejscowienie skrótu wśród innych tego rodzaju „odcisków palca”.
+ 
+\end_layout
+
+\begin_layout Itemize
+Zwrotnie użytkownik otrzymuje poświadczenie zarejestrowania skrótu i certyfikat
+ dokumentu (Serwer nie może ich zmieniać) skróty są gromadzone w centralnym
+ rejestrze i publikowane za pomocą różnych środków.
+ 
+\end_layout
+
+\begin_layout Subsection
+Elementy
+\end_layout
+
+\begin_layout Enumerate
+dokument i jego skrót
+\end_layout
+
+\begin_layout Enumerate
+serwer obliczający root hash (hash hashy dokumentów z danej sekundy) i SHV
+ (Super Hash Value - root hash i SHV z poprzedniej sekundy)
+\end_layout
+
+\begin_layout Enumerate
+certyfikat dokumentu - potwierdza zarejestrowanie skrótu dokumentu w systemie
+\end_layout
+
+\begin_layout Enumerate
+publikacja SHV za pomocą różnych środków
+\end_layout
+
+\begin_layout Subsection
+Elementy
+\end_layout
+
+\begin_layout Enumerate
+Powiązanie z innymi dokumentami
+\end_layout
+
+\begin_layout Enumerate
+Umiejscowienie w czasie
+\end_layout
+
+\begin_layout Enumerate
+Powiązany z całą historią skrótów
+\end_layout
+
+\begin_layout Enumerate
+Masowa publikacja
+\end_layout
+
+\begin_layout Subsection
+Uzasadnienie
+\end_layout
+
+\begin_layout Standard
+Zmiana dokumentu wymagała by przeliczenia wszystkich skrótów wystawionych
+ do chwili obecnej oraz zmiany wszystkich opublikowanych wartości SHV po
+ zgłoszeniu oryginalnego dokumentu.
+\end_layout
+
 \begin_layout Section
 Co to jest protokół łączący? Dlaczego i gdzie go stosujemy.
  Podaj przykład.
  
+\end_layout
+
+\begin_layout Standard
+Umożliwia jedno lub dwustronną wymianę informacji pomiędzy serwerami.
+ 
+\end_layout
+
+\begin_layout Standard
+Od sposobu połączenia zależą więc możliwości wykorzystania informacji o
+ sieciach z wielu lokalizacji.
+ Dzięki możliwości łączenia serwerów, możliwa jest rozbudowa systemu do
+ skali obejmującej wiele urządzeń rozproszonych na terenie całego kraju.
+ 
+\end_layout
+
+\begin_layout Standard
+Powiązanie znacznika czasu Alice z wcześniej otrzymanymi znacznikami czasu.
+\end_layout
+
+\begin_layout Standard
+Jeżeli A jest identyfikatorem Alice, skrót przeznaczony do opatrzenia znacznikie
+m czasu to H i poprzedni znacznik to Tn-1, to wtedy protokół tak wygląda:
+\end_layout
+
+\begin_layout Enumerate
+Alice przesyła Trentowi Hn i A.
+\end_layout
+
+\begin_layout Enumerate
+Trent odsyła z powrotem do Alice: Tn=SK(n,A,Hn,Tn;IDn-1,Hn-1,Tn-1,H(IDn-1,Tn-1,H
+n-1)) - SK wskazuje, że wiadomość jest podpisana przy użycia klucza prywatnego
+ Trenta.
+ Nazwa Alice identyfikuje ją jako źródło żądania.
+ Parametr n wskazuje na sekwencję żądania.
+ Parametr T, to czas.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Po ostemplowaniu następnego dokumentu Trent przesyła Alice identyfikator
+ pochodzenia tego dokumentu i IDn+1 
 \end_layout
 
 \begin_layout Section
