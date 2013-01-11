@@ -1706,5 +1706,62 @@ Co to jest SSL/TSL? Podaj krótką charakterystykę i części składowe.
 Jak przebiega atak typu Distributed D-o-S? Podaj aktorów i fazy ataku.
 \end_layout
 
+\begin_layout Subsection
+Ataki DoS/DDoS mają dwa typy ofiar
+\end_layout
+
+\begin_layout Enumerate
+docelowa ofiara i 
+\end_layout
+
+\begin_layout Enumerate
+pośredniczące systemy, na których działają exploity I demony atakującego.
+\end_layout
+
+\begin_layout Enumerate
+administrator siecie botnet
+\end_layout
+
+\begin_layout Subsection
+Fazy ataku DDoS:
+\end_layout
+
+\begin_layout Enumerate
+Intruz wynajduje jeden lub więcej systemów w Internecie takich, że mogą
+ dać się skompromitować i zainstalować exploity intruza.
+ Najczęściej wykorzystuje do tego celu wykradzione dane legalnego użytkownika,
+ wybierając przy tym systemy z szerokopasmowym dostępem, np.
+ węzły akademickie.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Na skompromitowany system ładuje dowolną liczbę narzędzi hakerskich (np.
+ skanery, wykrywacze typu SO, programy Dos/DDoS).
+ Taki system staje się Masterem, który rozpoczyna poszukiwanie innych systemów
+ możliwych do skompromitowania.
+ Przeszukuje także systemy w sieci lokalnej pod katem uruchomionych usług,
+ wynajdując te z podatnościami (masowe wnikanie).
+ Automatyczne narzędzie do tej kompromitacji systemów nie są częścią narzędzi
+ DDoS, ale pochodzą najczęściej od innych grup hakerów.
+ Te skompromitowane systemy stają się początkowymi ofiarami DDoS – zostają
+ na nich uruchomione demony DDoS przeprowadzające właściwy atak.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Intruz dysponuje listą „posiadanych” systemów z demonami DDoS.
+ Właściwa faza DDoS zaczyna się, gdy na systemie Master zostaje uruchomiony
+ program, który komunikuje się z demonami, wydając polecenie rozpoczęcia
+ ataku.
+ Tę komunikację można tak ukryć, że staje się trudna do wykrycia, aczkolwiek
+ istnieją pewne dowody na to, występuje.
+ W większości przypadków administratorzy zaatakowanych systemów (demonów)
+ nawet nie podejrzewają, że demony DDoS w nich działają.
+ Nawet zostaną one zlokalizowane i usunięte, to nie można określić, gdzie
+ jeszcze znajduje się takie oprogramowanie.
+ 
+\end_layout
+
 \end_body
 \end_document
