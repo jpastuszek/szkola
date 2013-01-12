@@ -12,7 +12,7 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
-\font_default_family default
+\font_default_family sfdefault
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
@@ -483,7 +483,7 @@ Tekst jawny dzieli się na dwa równe bloki , .
 
 \begin_layout Section
 Co to jest, do czego służy certyfikat klucza publicznego i dlaczego ma tak
- istotne znaczenie? 
+ istotne znaczenie?
 \end_layout
 
 \begin_layout Standard
@@ -931,7 +931,7 @@ Scharakteryzuj typy i zadania zapór ogniowych.
 \end_layout
 
 \begin_layout Subsection
-Typy zabór
+Typy zapór
 \end_layout
 
 \begin_layout Itemize
@@ -1056,12 +1056,136 @@ Opisz trzy polityki bezpieczeństwa w zarządzaniu personelem.
  
 \end_layout
 
+\begin_layout Itemize
+
+\emph on
+Formy zagrożeń:
+\emph default
+ defraudacje, wykradanie tajemnic, dokumentów o charakterze poufnym, strategiczn
+ym, itp.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Zabezpieczenia:
+\emph default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Polityki zatrudnienia (obok, np.
+ fizycznej kontroli dostępu, nadzoru, itp.): 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+przed zatrudnieniem (np.
+ badanie pochodzenia środowiskowego, podpisanie odpowiednio sformułowanej
+ umowy przed podjęciem pracy),
+\end_layout
+
+\begin_layout Itemize
+podczas pracy (szkolenia, budowa świadomości celów, izolacja i nadzór, wyodrębni
+enie postaci kluczowych oraz odstających od otoczenia, aspekty etyczne)
+ i
+\end_layout
+
+\begin_layout Itemize
+po ustaniu zatrudnienia (np.
+ zobowiązania do niepodejmowania pracy u konkurencji przez pewien czas –
+ opłacony!!).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+System kontroli dostępu fizycznego
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Budowa
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Centralka
+\end_layout
+
+\begin_layout Itemize
+Koncentratory
+\end_layout
+
+\begin_layout Itemize
+Układy wykrywania ingerencji i do kontroli osób (czujniki wykrywania ruchu
+ np.
+ podczerwienne, kamery, czytniki kart, układy zbliżeniowe, układy biometryczne,
+ itp.)
+\end_layout
+
+\begin_layout Itemize
+Układy wykonawcze (bramy, zapory, rygle, buczki, syreny, „koguty”, itp.).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Logiczna struktura systemu i polityki bezpieczeństwa bazują na:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+strefach obszarowych (komu wolno wejść na teren obiektu),
+\end_layout
+
+\begin_layout Itemize
+strefach czasowych (kiedy można wejść i przebywać na terenie obiektu strzeżonego
+).
+\end_layout
+
+\begin_layout Itemize
+Możliwości powiadamiania np.
+ policji lub innych służb drogą np.
+ radiową, siecią telekomunikacyjną, itp.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Kontrola i nadzór pracowników
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+kontrola czasu pracy,
+\end_layout
+
+\begin_layout Itemize
+billingi,
+\end_layout
+
+\begin_layout Itemize
+podsłuchy,
+\end_layout
+
+\begin_layout Itemize
+analiza zawartości poczty elektronicznej,
+\end_layout
+
+\begin_layout Itemize
+rozliczanie 
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Section
-Scharakteryzuj poziomy dojrzałości zarządzania bezpieczeństwem.
+[TODO] Scharakteryzuj poziomy dojrzałości zarządzania bezpieczeństwem.
 \end_layout
 
 \begin_layout Section
-Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
+[TODO] Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
  Wymień plan audytu i czynności audytora.
  
 \end_layout
@@ -1473,7 +1597,25 @@ PEM - Listy unieważnień certyfikatów (CRL) są zachowane w katalogach typu
 
 \end_deeper
 \begin_layout Section
-Jakie cechy techniczne ma dobry protokół uwierzytelniania? 
+Jakie cechy techniczne ma dobry protokół uwierzytelniania?
+\end_layout
+
+\begin_layout Itemize
+każda sesja (”rozmowa”) ma swój własny, specjalnie dla niej wygenerowany
+ klucz sesyjny
+\end_layout
+
+\begin_layout Itemize
+klucze sesyjne powinny maksymalnie rzadko się powtarzać między różnymi sesjami
+\end_layout
+
+\begin_layout Itemize
+klucz sesyjny powinien mieć w sobie czynnik losowy
+\end_layout
+
+\begin_layout Itemize
+sesja powinna być umiejscowiona w czasie, ale ów czas powinien być mierzony
+ wg zegara tylko jednej ze stron!!
 \end_layout
 
 \begin_layout Section
@@ -1494,12 +1636,106 @@ Celem protokołu jest uwierzytelnienie się podmiotu A przez wykazanie się
 \end_layout
 
 \begin_layout Section
-Czy protokół Kerberos jest bezpieczny? Uzasadnij swoją odpowiedź.
+[TODO] Czy protokół Kerberos jest bezpieczny? Uzasadnij swoją odpowiedź.
  
 \end_layout
 
 \begin_layout Section
 Jak zapewniamy bezpieczeństwo platform obliczeniowych? 
+\end_layout
+
+\begin_layout Itemize
+Administratorzy: zaznajomieni z systemem operacyjnym i używanym opgrogramowaniem
+, wyszkoleni z zakresu bezpieczeńśtwa
+\end_layout
+
+\begin_layout Itemize
+Sprzęt: od uznanych dostawców, serwer możliwie odporny na awarie pojedyńczych
+ elementów, redundantne zasilacze, samodiagnostyka, zabezpieczenia fizyczne
+\end_layout
+
+\begin_layout Itemize
+Serwerownia: zabezpieczenia dostępu fizycznego, spełnione wymagania środowiskowe
+ dla sprzętu
+\end_layout
+
+\begin_layout Itemize
+Identyfikacja i uwierzytelnianie: najlepiej metoda hybrydowa (tokeny i hasła),
+ hasła jednorazowe, ewentualnie hasła statyczne
+\end_layout
+
+\begin_layout Itemize
+UPS: Baterie powinny zapewniać zasilanie dla całego sprzętu przez czas kilka
+ razy dłuższy od czasu typowego zaniku napięcia lub przy obecności agregatu
+ prądotwórczego (dla systemów pracujących non-stop) na czas wystarczający
+ na uruchomienie i ustabilizowanie pracy agregatu
+\end_layout
+
+\begin_layout Itemize
+Kopie bezpieczeństwa: całościowe conajmniej raz w tygodniu, przyrostowe
+ i całościowe przechowywane w różnych miejscach, ew.
+ zabezpieczenia kryptograficzne
+\end_layout
+
+\begin_layout Itemize
+Hartowanie: ????????
+\end_layout
+
+\begin_layout Itemize
+RBAC: Jeśli serwer znajduje się pod opieką zespołu administratorów (powinni
+ oni mieć różne uprawnienia), zaleca się, dla zgodności ze strategią minimalnych
+ uprawnień, wykorzystanie mechanizmu kontroli dostępu RBAC.
+ 
+\end_layout
+
+\begin_layout Itemize
+Audyt: śledzenie wszystkich zdarzeń wykonywanych przez użytkowników
+\end_layout
+
+\begin_layout Itemize
+Oprogramowanie antywirusowe: w przypadku serwera poczty lub serwera plików,
+ lub gdy SO jest podatny (Windows hehe)
+\end_layout
+
+\begin_layout Itemize
+Znaki wodne: automatyczne znakowanie treści w przypadku treści chronionej
+ prawami autorskimi gdy znane są dane klienta (a co to ma do obliczeń???)
+\end_layout
+
+\begin_layout Itemize
+HIDS: (Human Intrusion Detection System?)
+\end_layout
+
+\begin_layout Itemize
+Separacja usług: jak największe rozdzielenie usług pomiędzy różne serwery
+ (maszyny)
+\end_layout
+
+\begin_layout Itemize
+Serwery pośredniczące: np.: niemożliwy dostęp do serwera bazy z zewnątrz
+\end_layout
+
+\begin_layout Itemize
+Honeypot: Powinien być stosowany, jeśli przechowywane są wartościowe dane,
+ a zwłaszcza jeśli istnieje obawa przed atakiem z wewnątrz.
+ Przyjmując, że dostęp do serwera przechowującego kluczowe informacje jest
+ możliwy tylko za pośrednictwem serwerów front-end (a więc dobrze znanych),
+ wszystkie połączenia, które przychodzą z innego źródła należy przekierować
+ do honeypota.
+ Honeypot może zostać zrealizowany przez przekierowanie portów – odwołania
+ do innych portów niż działające na właściwym serwerze mogą być przekierowywane
+ do honeypota.
+ 
+\end_layout
+
+\begin_layout Itemize
+Zapora ogniowa: Dostęp do serwera zarówno z zewnątrz jak i wewnątrz powinien
+ być możliwy tylko za pośrednictwem zapory ogniowej działającej niezależnie
+ od serwera
+\end_layout
+
+\begin_layout Itemize
+NIDS i NNIDS: ????????
 \end_layout
 
 \begin_layout Section
@@ -1702,6 +1938,64 @@ Co to jest SSL/TSL? Podaj krótką charakterystykę i części składowe.
  
 \end_layout
 
+\begin_layout Standard
+Podstawowym zadaniem, które realizuje protokół SSL (Secure Socket Layer)
+ jest umożliwienie bezpiecznej wymiany informacji i danych pomiędzy komunikujący
+mi się serwerem i klientem, wykorzystując do tego niezabezpieczone łącze.
+ Został on w swojej początkowej wersji opracowany przez firmę Netscape Corporati
+on i wykorzystywany w tworzonych przez nią serwerach i przeglądarkach.
+ Mechanizmy zaimplementowane w protokole SSL szyfrują przesyłane dane, a
+ także zabezpieczają je przed zmianami (zapewniają integralność), uwierzytelniaj
+ą także komputery biorące udział w transmisji.
+ SSL jest zbudowany z 4 podprotokołów: 
+\end_layout
+
+\begin_layout Itemize
+SSL record protocol
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+definiuje format używanych do transmisji danych.
+ Wysyłana informacja jest dzielona na odpowiedniej długości fragmenty.
+ Fragmenty te następnie poddawane są kompresji, szyfrowaniu i w takiej postaci
+ są przekazywane warstwom niższym.
+ Podczas odbierania informacji operacje te przebiegają w odwrotnej kolejności.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+SSL cipher change protocol
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+protokół zmiany specyfikacji szyfru SSL
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+SSL alert protocol
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+protokół alarmowy SSL
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+SSL handshake protocol.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+wykorzystuje SSL record protocol w celu wymiany komunikatów pomiędzy klientem
+ i serwerem podczas nawiązywania połączenia.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Jak przebiega atak typu Distributed D-o-S? Podaj aktorów i fazy ataku.
 \end_layout
