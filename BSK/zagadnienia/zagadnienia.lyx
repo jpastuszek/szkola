@@ -79,7 +79,11 @@ Cechy trybów pracy szyfrów blokowych: ECB, CBC, CFB, OFB.
 \end_layout
 
 \begin_layout Subsection
-ECB - Tryb elektronicznej książki kodowej (electronic codebook).
+ECB - Tryb elektronicznej książki kodowej (
+\lang english
+electronic code book
+\lang polish
+).
 \end_layout
 
 \begin_layout Standard
@@ -134,7 +138,11 @@ zastosowania: ograniczone - tam, gdzie stosujemy tylko 1-2 bloki informacji,
 \end_layout
 
 \begin_layout Subsection
-CBC - Tryb wiązania bloków zaszyfrowanych (cipher block chaining)
+CBC - Tryb wiązania bloków zaszyfrowanych (
+\lang english
+cipher block chaining
+\lang polish
+)
 \end_layout
 
 \begin_layout Standard
@@ -264,7 +272,7 @@ pracuje jedynie jako szyfrator przy szyfrowaniu, jak i odszyfrowaniu
 \end_layout
 
 \begin_layout Itemize
-dla mniejszych podbloków pracuje dłużej
+dla mniejszych pod-bloków pracuje dłużej
 \end_layout
 
 \begin_layout Itemize
@@ -322,7 +330,7 @@ brak
 \end_layout
 
 \begin_layout Itemize
-pojedynczy błąd jednobitowy w szyfrogramie powoduje pojedynczy błąd bitowy
+pojedynczy błąd jedno-bitowy w szyfrogramie powoduje pojedynczy błąd bitowy
  w odtworzonym tekście jawnym
 \end_layout
 
@@ -336,7 +344,7 @@ pracuje jedynie jako szyfrator przy szyfrowaniu, jak i odszyfrowaniu
 \end_layout
 
 \begin_layout Itemize
-dla mniejszych podbloków pracuje dłużej
+dla mniejszych pod-bloków pracuje dłużej
 \end_layout
 
 \begin_layout Itemize
@@ -375,15 +383,25 @@ http://en.wikipedia.org/wiki/Substitution-permutation_network
 \end_layout
 
 \begin_layout Standard
-Sieć permutacyjno-podstawieniowa (Substitution-permutation network) to seria
- połączonych matematycznych operacji użytych w szyfrach blokowych takich
- jak AES.
+Sieć permutacyjno-podstawieniowa (
+\lang english
+Substitution-permutation network
+\lang polish
+) to seria połączonych matematycznych operacji użytych w szyfrach blokowych
+ takich jak AES.
 \end_layout
 
 \begin_layout Standard
 Składają się z zestawu naprzemiennie stosowanych rund lub warstw składających
- się z bloków zastępujących (substitution boxes - S-boxes) i permutacyjnych
- (permutation boxes - P-boxes).
+ się z bloków zastępujących (
+\lang english
+substitution boxes - S-boxes
+\lang polish
+) i permutacyjnych (
+\lang english
+permutation boxes - P-boxes
+\lang polish
+).
  Bloki te transformują bloki bitów wejściowych na bloki bitów wyjściowych.
  Zazwyczaj klucz jest indukowany w każdej rundzie, często stosowane są klucze
  generowane z klucza głównego.
@@ -432,7 +450,7 @@ Indukcja klucza
 
 \begin_layout Standard
 Typowo po każdej rundzie indukowany jest klucz (jego część lub wygenerowany
- na jego podstawie podklucz) za pomocą operacji matematycznej - najczęściej
+ na jego podstawie pod-klucz) za pomocą operacji matematycznej - najczęściej
  XOR.
 \end_layout
 
@@ -487,8 +505,11 @@ Co to jest, do czego służy certyfikat klucza publicznego i dlaczego ma tak
 \end_layout
 
 \begin_layout Standard
-To podpisana przez poświadczającego (Certification Authority) struktura
- danych zawierająca:
+To podpisana przez poświadczającego (
+\lang english
+Certification Authority
+\lang polish
+) struktura danych zawierająca:
 \end_layout
 
 \begin_layout Itemize
@@ -540,10 +561,13 @@ Co to jest PKI i jaką pełni rolę?
 \end_layout
 
 \begin_layout Standard
-Zarządzanie kluczami (PKI - Public Key Infrastructure) to zestaw sprzętu,
- oprogramowania, ludzi i procedur potrzebnych do tworzenia, zarządzania,
- dystrybucji, wykorzystania, przechowywania i unieważniania cyfrowych certyfikat
-ów.
+Zarządzanie kluczami (
+\lang english
+PKI - Public Key Infrastructure
+\lang polish
+) to zestaw sprzętu, oprogramowania, ludzi i procedur potrzebnych do tworzenia,
+ zarządzania, dystrybucji, wykorzystania, przechowywania i unieważniania
+ cyfrowych certyfikatów.
 \end_layout
 
 \begin_layout Standard
@@ -567,7 +591,11 @@ stosowanie (dobór) i użytkowanie,
 \end_layout
 
 \begin_layout Itemize
-przechowywanie, w tym przekazywanie TTP i organom prawnym (escrow),
+przechowywanie, w tym przekazywanie TTP i organom prawnym (
+\lang english
+escrow
+\lang polish
+),
 \end_layout
 
 \begin_layout Itemize
@@ -847,85 +875,6 @@ Zalety: Ilość kluczy jest zdecydowanie niższa niż w technikach symetrycznych
  wymieniać często kluczy Wady: Wolniejsze, duże klucze
 \end_layout
 
-\begin_layout Subsection
-Uwierzytelnianie z użyciem technik symetrycznych z udziałem TTP
-\end_layout
-
-\begin_layout Enumerate
-Alice, aby połączyć się z Bobem, kieruje zamówienie na klucz sesyjny do
- Trenta.
-\end_layout
-
-\begin_layout Enumerate
-Trent generuje losowy klucz sesyjny.
- Szyfruje następnie dwie jego kopie: jedną w postaci klucza Alice i drugą
- jako klucz Boba.
- Trent wysyła obie kopie Alice.
-\end_layout
-
-\begin_layout Enumerate
-Alice deszyfruje swoją kopię klucza sesyjnego.
-\end_layout
-
-\begin_layout Enumerate
-Alice przesyła Bobowi jego kopię klucza sesyjnego.
-\end_layout
-
-\begin_layout Enumerate
-Bob deszyfruje swoją kopię klucza sesyjnego.
-\end_layout
-
-\begin_layout Enumerate
-Oboje, Alice i Bob, używają klucza sesyjnego, aby bezpiecznie komunikować
- się ze sobą.
-\end_layout
-
-\begin_layout Standard
-Dobry protokół uwierzytelniania posiada:
-\end_layout
-
-\begin_layout Itemize
-losowo wygenerowane liczby na czas sesji wykorzystane do weryfikacji wiadomości
-\end_layout
-
-\begin_layout Itemize
-znaczniki czasu zapobiegające wykorzystaniu 
-\begin_inset Quotes eld
-\end_inset
-
-starych
-\begin_inset Quotes erd
-\end_inset
-
- wiadomości
-\end_layout
-
-\begin_layout Itemize
-sekret znany tylko stronie komunikującej się i serwerowi TTP
-\end_layout
-
-\begin_layout Subsection
-Uwierzytelnianie z użyciem technik asymetrycznych bez udziału TTP
-\end_layout
-
-\begin_layout Enumerate
-Alice pobiera klucz jawny Boba z KDC.
-\end_layout
-
-\begin_layout Enumerate
-Alice generuje losowy klucz sesyjny k, szyfruje go, używając klucza jawnego
- Boba i przesyła Bobowi.
-\end_layout
-
-\begin_layout Enumerate
-Aby odtworzyć klucz sesyjny, Bob deszyfruje otrzymaną wiadomość za pomocą
- swego klucza prywatnego.
-\end_layout
-
-\begin_layout Enumerate
-Oboje szyfrują przesyłane wiadomości, używając tego samego klucza sesyjnego.
-\end_layout
-
 \begin_layout Section
 Scharakteryzuj typy i zadania zapór ogniowych.
 \end_layout
@@ -970,11 +919,19 @@ szyfrowanie danych
 
 \end_deeper
 \begin_layout Itemize
-bramy (gateways, proxy gateways) - działają na poziomie aplikacji
+bramy (
+\lang english
+gateways, proxy gateways
+\lang polish
+) - działają na poziomie aplikacji
 \end_layout
 
 \begin_layout Itemize
-strażnicy (guards)
+strażnicy (
+\lang english
+guards
+\lang polish
+)
 \end_layout
 
 \begin_layout Subsection
@@ -1056,6 +1013,24 @@ Opisz trzy polityki bezpieczeństwa w zarządzaniu personelem.
  
 \end_layout
 
+\begin_layout Enumerate
+przed zatrudnieniem - np.
+ badanie pochodzenia środowiskowego, podpisanie odpowiednio sformułowanej
+ umowy przed podjęciem pracy
+\end_layout
+
+\begin_layout Enumerate
+podczas pracy - szkolenia, budowa świadomości celów, izolacja i nadzór,
+ wyodrębnienie postaci kluczowych oraz odstających od otoczenia, aspekty
+ etyczne
+\end_layout
+
+\begin_layout Enumerate
+po ustaniu zatrudnienia - np.
+ zobowiązania do niepodejmowania pracy u konkurencji przez pewien czas –
+ opłacony!!
+\end_layout
+
 \begin_layout Section
 Scharakteryzuj poziomy dojrzałości zarządzania bezpieczeństwem.
 \end_layout
@@ -1064,6 +1039,12 @@ Scharakteryzuj poziomy dojrzałości zarządzania bezpieczeństwem.
 Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
  Wymień plan audytu i czynności audytora.
  
+\end_layout
+
+\begin_layout Standard
+Wstępny audyt dotyczy obiektów, polityki personalnej, istniejących zabezpieczeń,
+ aplikacji, odpowiedzialności wobec udziałowców i klientów, lokalnego społeczeńs
+twa.
 \end_layout
 
 \begin_layout Section
@@ -1077,7 +1058,7 @@ DAC
 
 \begin_layout Standard
 określa podstawowe metody kontroli dostępu do obiektów w systemie plików.
- Administratorem uprawnień jest sys_admin lub właściciel obiektu (pliku).
+ Administratorem uprawnień jest sysadmin lub właściciel obiektu (pliku).
  Rozbudowana wersją DAC jest model ACL – list kontroli dostępu.
 \end_layout
 
@@ -1371,7 +1352,7 @@ PEM - hierarchiczna dystrybucja kluczy
 
 \end_deeper
 \begin_layout Enumerate
-Zastosowa-nia docelowe
+Zastosowania docelowe
 \end_layout
 
 \begin_deeper
@@ -1399,8 +1380,8 @@ PGP - może pod-pisać wiadomość nieszyfrowaną; może szyfrować wiadomości
 \end_layout
 
 \begin_layout Enumerate
-PEM - może podpisać wiadomość nieszyfrowaną; nie jest możliwe wysłanie wiadomo-ś
-ci, która jest nie podpisana
+PEM - może podpisać wiadomość nieszyfrowaną; nie jest możliwe wysłanie wiadomośc
+i, która jest nie podpisana
 \end_layout
 
 \end_deeper
@@ -1448,7 +1429,7 @@ PGP - Klucze jawne PGP typowo rozprowadza się pocztą elektroniczną, za pomoc�
 \end_layout
 
 \begin_layout Enumerate
-PEM - CA jest obdarzoną powszech-nym zaufaniem (TTP) bazą kluczy jawnych.
+PEM - CA jest obdarzoną powszechnym zaufaniem (TTP) bazą kluczy jawnych.
  Klucze jawne PEM mogą być rozprowadzane za pomocą dowolnych środków, zwykle
  pocztą elektroniczną lub za pomocą przeglądania katalogów zbudowanych w
  oparciu o standard X.500.
@@ -1476,6 +1457,68 @@ PEM - Listy unieważnień certyfikatów (CRL) są zachowane w katalogach typu
 Jakie cechy techniczne ma dobry protokół uwierzytelniania? 
 \end_layout
 
+\begin_layout Standard
+Dobry protokół uwierzytelniania wykorzystuje:
+\end_layout
+
+\begin_layout Itemize
+losowe liczby
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+aktor generuje losową liczbę i zapamiętuje jej wartość
+\end_layout
+
+\begin_layout Itemize
+liczba ta przesyłana bądź odbierana w formie zaszyfrowanej
+\end_layout
+
+\begin_layout Itemize
+weryfikuje wartość tej liczby po otrzymaniu ją wraz z wiadomością zwrotną
+\end_layout
+
+\begin_layout Itemize
+zapobiega to atakom powtórzeniowym
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+znaczniki czasu
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+weryfikowany przez agenta który go wygenerował
+\end_layout
+
+\begin_layout Itemize
+nie wymaga synchronizacji zegarów
+\end_layout
+
+\begin_layout Itemize
+zapobiega atakom bazującym na wykorzystaniu 
+\begin_inset Quotes eld
+\end_inset
+
+starych
+\begin_inset Quotes erd
+\end_inset
+
+ wiadomości
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+wykorzystanie sekretu
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+zapobiega przed atakiem z wnętrza systemu
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Na czym polega dowód o wiedzy zerowej? Podaj jego techniczne elementy.
  
@@ -1496,10 +1539,135 @@ Celem protokołu jest uwierzytelnienie się podmiotu A przez wykazanie się
 \begin_layout Section
 Czy protokół Kerberos jest bezpieczny? Uzasadnij swoją odpowiedź.
  
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Kerberos_(protocol)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Wykorzystane elementy
+\end_layout
+
+\begin_layout Itemize
+znacznik czasu - zapobiega atakom bazującym na wykorzystaniu 
+\begin_inset Quotes eld
+\end_inset
+
+starych
+\begin_inset Quotes erd
+\end_inset
+
+ wiadomości
+\end_layout
+
+\begin_layout Itemize
+sekret - klient używa hasła do wygenerowania klucza służącego do rozszyfrowania
+ klucza sesyjnego (hasło nigdy nie jest przesyłane); serwer TGS współdzieli
+ tajny klucz z każdym z serwisów
+\end_layout
+
+\begin_layout Itemize
+losowe liczby - klient weryfikuje znajomość znacznika czasowego przez serwis,
+ który musiał go rozszyfrować kluczem sesji zaszyfrowanym współdzielonym
+ kluczem z TGS
+\end_layout
+
+\begin_layout Itemize
+dokonane jest uwierzytelnienie wszystkich aktorów systemu:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+AS względem klienta i na odwrót - AS i użytkownik weryfikowani przez znajomość
+ hasła użytkownika bez przesyłania tego hasła
+\end_layout
+
+\begin_layout Itemize
+serwis względem TGS - TGS i serwer znają ten sam klucz który jest używany
+ do rozszyfrowania przez serwis klucza sesyjnego z użytkownikiem
+\end_layout
+
+\begin_layout Itemize
+serwis względem klienta - serwis po rozszyfrowaniu klucza sesji oraz znacznika
+ czasowego klienta zwiększa jego wartość i wysyła go po zaszyfrowaniu kluczem
+ sesji - klient weryfikuje prawidłowość znacznika czasu
+\end_layout
+
+\begin_layout Itemize
+klient względem serwisu - TGS i klient znają wspólny klucz sesji który umożliwi
+ im dalszą komunikację
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+dokonana jest autoryzacja klienta do skorzystania z serwisu przez TGS
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+TGS wystawia bilet umożliwiający serwisowi rozszyfrowanie klucza sesyjnego
+ z klientem
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph*
+Wady
+\end_layout
+
+\begin_layout Standard
+Włamanie się na centralny serwer może umożliwić włamywaczowi podszycie się
+ za dowolnego użytkownika.
+\end_layout
+
+\begin_layout Paragraph*
+Uzasadnienie
+\end_layout
+
+\begin_layout Standard
+System ten wykorzystuje wszystkie elementy potrzebne do uniknięcia podstawowych
+ metod ataku.
+ Dodatkowo każdy aktor jest uwierzytelniany a klient jest autoryzowany do
+ skorzystania z serwisu w sposób kryptograficzny.
+ Serwer AS musi być specjalnie chroniony przed włamaniami i stanowi centralny
+ punkt którego awaria lub włamanie uniemożliwia użytkownikom korzystanie
+ z serwisów.
+ 
+\end_layout
+
+\begin_layout Standard
+System ten jest bezpieczny tak bardzo jak bezpieczny jest serwer AS.
 \end_layout
 
 \begin_layout Section
 Jak zapewniamy bezpieczeństwo platform obliczeniowych? 
+\end_layout
+
+\begin_layout Standard
+Działania związane z zabezpieczeniem platform systemów operacyjnych można
+ podzielić na 4 grupy:
+\end_layout
+
+\begin_layout Itemize
+Środki organizacyjne
+\end_layout
+
+\begin_layout Itemize
+Bezpieczeństwo fizyczne
+\end_layout
+
+\begin_layout Itemize
+Bezpieczeństwo lokalne
+\end_layout
+
+\begin_layout Itemize
+Bezpieczeństwo sieciowe
 \end_layout
 
 \begin_layout Section
@@ -1541,7 +1709,7 @@ Informacje o m1-zamówieniu, m2-płatności.
 ji MD1 i MD2 MDpow=H(concat(MD1,MD2)) podpisanych przez Alice za pomocą
  jej klucza prywatnego.
  Alice wysyła do Boba (m1|m2)a=[m1,MD2,MDpow,K'a(MDpow)].
- Umożliwi to Bbowi uwierzytelnienie Alice i sprawdzenie, że złożyła podpis
+ Umożliwi to Bobowi uwierzytelnienie Alice i sprawdzenie, że złożyła podpis
  pod całym komunikatem.
  Bobowi nie uda się jednak przeczytać m2.
  
@@ -1575,8 +1743,11 @@ Na serwerze notariatu gromadzone są skróty dokumentów przesłane w tej samej
 \begin_layout Itemize
 Na ich podstawie budowany jest łączny skrót wielu dokumentów z tej samej
  sekundy, ten dodawany jest do sumy skrótów bazowych w tzw Super skrót bazowy
- (SHV super hash value) z poprzedniej sekundy dając nowy skrót dla danej
- sekundy.
+ (SHV - 
+\lang english
+super hash value
+\lang polish
+) z poprzedniej sekundy dając nowy skrót dla danej sekundy.
  
 \end_layout
 
@@ -1608,8 +1779,23 @@ dokument i jego skrót
 \end_layout
 
 \begin_layout Enumerate
-serwer obliczający root hash (hash hashy dokumentów z danej sekundy) i SHV
- (Super Hash Value - root hash i SHV z poprzedniej sekundy)
+serwer obliczający 
+\lang english
+root hash
+\lang polish
+ (
+\lang english
+hash
+\lang polish
+ hashy dokumentów z danej sekundy) i SHV (
+\lang english
+Super Hash Value
+\lang polish
+ - 
+\lang english
+root hash
+\lang polish
+ i SHV z poprzedniej sekundy)
 \end_layout
 
 \begin_layout Enumerate
@@ -1702,6 +1888,56 @@ Co to jest SSL/TSL? Podaj krótką charakterystykę i części składowe.
  
 \end_layout
 
+\begin_layout Standard
+Podstawowym zadaniem, które realizuje protokół SSL jest umożliwienie bezpiecznej
+ wymiany informacji i danych pomiędzy komunikującymi się serwerem i klientem,
+ wykorzystując do tego niezabezpieczone łącze.
+\end_layout
+
+\begin_layout Paragraph*
+Mechanizmy zaimplementowane w protokole SSL:
+\end_layout
+
+\begin_layout Itemize
+szyfrują przesyłane dane,
+\end_layout
+
+\begin_layout Itemize
+a także zabezpieczają je przed zmianami (zapewniają integralność),
+\end_layout
+
+\begin_layout Itemize
+uwierzytelniają także komputery biorące udział w transmisji.
+\end_layout
+
+\begin_layout Paragraph*
+SSL jest zbudowany z czterech pod-protokołów:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+SSL record protocol,
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+SSL handshake protocol,
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+SSL Alert protocol,
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+SSL cipher change protocol.
+\end_layout
+
 \begin_layout Section
 Jak przebiega atak typu Distributed D-o-S? Podaj aktorów i fazy ataku.
 \end_layout
@@ -1719,7 +1955,7 @@ pośredniczące systemy, na których działają exploity I demony atakującego.
 \end_layout
 
 \begin_layout Enumerate
-administrator siecie botnet
+administrator sieci botnet
 \end_layout
 
 \begin_layout Subsection
