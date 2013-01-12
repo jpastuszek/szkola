@@ -866,13 +866,13 @@ Bez TTP
 \end_layout
 
 \begin_layout Standard
-strony wymieniają się certyfikatami, muszą sobie wzajemnie ufać 
+Strony wymieniają się certyfikatami, muszą sobie wzajemnie ufać.
 \end_layout
 
 \begin_layout Standard
 Zalety: Ilość kluczy jest zdecydowanie niższa niż w technikach symetrycznych
  Zarządzanie kluczami pozwala na obecność zaufanej trzeciej strony Nie trzeba
- wymieniać często kluczy Wady: Wolniejsze, duże klucze
+ wymieniać często kluczy Wady: Wolniejsze, duże klucze.
 \end_layout
 
 \begin_layout Section
@@ -880,7 +880,7 @@ Scharakteryzuj typy i zadania zapór ogniowych.
 \end_layout
 
 \begin_layout Subsection
-Typy zabór
+Typy zapór
 \end_layout
 
 \begin_layout Itemize
@@ -1013,28 +1013,223 @@ Opisz trzy polityki bezpieczeństwa w zarządzaniu personelem.
  
 \end_layout
 
+\begin_layout Itemize
+
+\emph on
+Formy zagrożeń:
+\emph default
+ defraudacje, wykradanie tajemnic, dokumentów o charakterze poufnym, strategiczn
+ym, itp.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Zabezpieczenia:
+\emph default
+ 
+\end_layout
+
+\begin_deeper
 \begin_layout Enumerate
-przed zatrudnieniem - np.
+Polityki zatrudnienia (obok, np.
+ fizycznej kontroli dostępu, nadzoru, itp.): 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+przed zatrudnieniem (np.
  badanie pochodzenia środowiskowego, podpisanie odpowiednio sformułowanej
- umowy przed podjęciem pracy
+ umowy przed podjęciem pracy),
 \end_layout
 
-\begin_layout Enumerate
-podczas pracy - szkolenia, budowa świadomości celów, izolacja i nadzór,
- wyodrębnienie postaci kluczowych oraz odstających od otoczenia, aspekty
- etyczne
+\begin_layout Itemize
+podczas pracy (szkolenia, budowa świadomości celów, izolacja i nadzór, wyodrębni
+enie postaci kluczowych oraz odstających od otoczenia, aspekty etyczne)
+ i
 \end_layout
 
-\begin_layout Enumerate
-po ustaniu zatrudnienia - np.
+\begin_layout Itemize
+po ustaniu zatrudnienia (np.
  zobowiązania do niepodejmowania pracy u konkurencji przez pewien czas –
- opłacony!!
+ opłacony!!).
+ 
 \end_layout
 
+\end_deeper
+\begin_layout Enumerate
+System kontroli dostępu fizycznego
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Budowa
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Centralka
+\end_layout
+
+\begin_layout Itemize
+Koncentratory
+\end_layout
+
+\begin_layout Itemize
+Układy wykrywania ingerencji i do kontroli osób (czujniki wykrywania ruchu
+ np.
+ podczerwienne, kamery, czytniki kart, układy zbliżeniowe, układy biometryczne,
+ itp.)
+\end_layout
+
+\begin_layout Itemize
+Układy wykonawcze (bramy, zapory, rygle, buczki, syreny, „koguty”, itp.).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Logiczna struktura systemu i polityki bezpieczeństwa bazują na:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+strefach obszarowych (komu wolno wejść na teren obiektu),
+\end_layout
+
+\begin_layout Itemize
+strefach czasowych (kiedy można wejść i przebywać na terenie obiektu strzeżonego
+).
+\end_layout
+
+\begin_layout Itemize
+Możliwości powiadamiania np.
+ policji lub innych służb drogą np.
+ radiową, siecią telekomunikacyjną, itp.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Kontrola i nadzór pracowników
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+kontrola czasu pracy,
+\end_layout
+
+\begin_layout Itemize
+billingi,
+\end_layout
+
+\begin_layout Itemize
+podsłuchy,
+\end_layout
+
+\begin_layout Itemize
+analiza zawartości poczty elektronicznej,
+\end_layout
+
+\begin_layout Itemize
+rozliczanie 
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Section
 Scharakteryzuj poziomy dojrzałości zarządzania bezpieczeństwem.
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Na podstawie: http://www.secure.edu.pl/pdf/2012/D1_1645_B_Dworakowski.pdf
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Poziom
+\begin_inset space ~
+\end_inset
+
+1 Weryfikacja automatyczna
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skanowanie dynamiczne
+\end_layout
+
+\begin_layout Enumerate
+Skanowanie kodu źródłowego
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Poziom
+\begin_inset space ~
+\end_inset
+
+2 Weryfikacja ręczna
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Testy penetracyjne
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Code Review
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Poziom
+\begin_inset space ~
+\end_inset
+
+3 Weryfikacja projektu
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Wszystkie biblioteki i serwisy projektu
+\end_layout
+
+\begin_layout Enumerate
+Modelowanie zagrożeń i weryfikacja projektu
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Poziom
+\begin_inset space ~
+\end_inset
+
+4 Weryfikacja wewnętrzna
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Framework, narzędzia, itp.
+\end_layout
+
+\begin_layout Enumerate
+Weryfikacja możliwości wprowadzania złośliwego kodu
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
  Wymień plan audytu i czynności audytora.
@@ -1042,9 +1237,75 @@ Co to jest audyt? Podaj rolę audytu w kontroli bezpieczeństwa.
 \end_layout
 
 \begin_layout Standard
+Audyt informatyczny jest to proces zbierania i oceniania dowodów w celu
+ określenia czy system informatyczny i związane z nim zasoby właściwie chronią
+ majątek, utrzymują integralność danych i dostarczają odpowiednich i rzetelnych
+ informacji, osiągają efektywnie cele organizacji, oszczędnie wykorzystują
+ zasoby i stosują mechanizmy kontroli wewnętrznej, tak aby dostarczyć rozsądnego
+ zapewnienia, że osiągane są cele operacyjne i kontrolne, oraz że chroni
+ się przed niepożądanymi zdarzeniami lub są one na czas wykrywane a ich
+ skutki na czas korygowane.
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://pl.wikipedia.org/wiki/Audyt_informatyczny
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Wstępny audyt dotyczy obiektów, polityki personalnej, istniejących zabezpieczeń,
  aplikacji, odpowiedzialności wobec udziałowców i klientów, lokalnego społeczeńs
 twa.
+\end_layout
+
+\begin_layout Paragraph*
+Plan audytu
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://forge154.forgehost.pl/notatki/ASI-temat_4.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+szacowanie ryzyka i wstępne planowanie audytu,
+\end_layout
+
+\begin_layout Enumerate
+zapoznanie się z audytowanym obszarem(zrozumienie natury procesów i ryzyka
+ poprzez wywiady i pozyskanie odpowiednich dokumentów),
+\end_layout
+
+\begin_layout Enumerate
+szczegółowe planowanie audytu,
+\end_layout
+
+\begin_layout Enumerate
+przeprowadzenie szczegółowych prac audytowych,
+\end_layout
+
+\begin_layout Enumerate
+ocena zaplanowanych, przewidzianych mechanizmów kontrolnych pod kątem ich
+ adekwatności w stosunku do potrzeb,
+\end_layout
+
+\begin_layout Enumerate
+ocena zgodności zastanej praktyki z planami i przewidywaniami,
+\end_layout
+
+\begin_layout Enumerate
+przygotowanie i prezentacja raportu.
 \end_layout
 
 \begin_layout Section
@@ -1457,10 +1718,53 @@ PEM - Listy unieważnień certyfikatów (CRL) są zachowane w katalogach typu
 Jakie cechy techniczne ma dobry protokół uwierzytelniania? 
 \end_layout
 
+\begin_layout Itemize
+każda sesja (”rozmowa”) ma swój własny, specjalnie dla niej wygenerowany
+ klucz sesyjny
+\end_layout
+
+\begin_layout Itemize
+klucze sesyjne powinny maksymalnie rzadko się powtarzać między różnymi sesjami
+\end_layout
+
+\begin_layout Itemize
+klucz sesyjny powinien mieć w sobie czynnik losowy
+\end_layout
+
+\begin_layout Itemize
+sesja powinna być umiejscowiona w czasie, ale ów czas powinien być mierzony
+ wg zegara tylko jednej ze stron!!
+\end_layout
+
 \begin_layout Standard
 Dobry protokół uwierzytelniania wykorzystuje:
 \end_layout
 
+\begin_layout Itemize
+klucze sesyjne
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+wykorzystuje klucze na czas trwania sesji
+\end_layout
+
+\begin_layout Itemize
+klucze te można wymienić podczas trwania długich sesji (np.
+ VPN, SLL)
+\end_layout
+
+\begin_layout Itemize
+zmniejsza to ilość danych do kryptoanalizy względem kluczy używanych w procesie
+ ustalenia klucza sesyjnego
+\end_layout
+
+\begin_layout Itemize
+złamanie jednego klucza sesyjnego nie umożliwia odczytania danych z innych
+ sesji
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 losowe liczby
 \end_layout
@@ -1649,7 +1953,7 @@ System ten jest bezpieczny tak bardzo jak bezpieczny jest serwer AS.
 Jak zapewniamy bezpieczeństwo platform obliczeniowych? 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Paragraph*
 Działania związane z zabezpieczeniem platform systemów operacyjnych można
  podzielić na 4 grupy:
 \end_layout
@@ -1668,6 +1972,109 @@ Bezpieczeństwo lokalne
 
 \begin_layout Itemize
 Bezpieczeństwo sieciowe
+\end_layout
+
+\begin_layout Paragraph*
+Techniki i obszary
+\end_layout
+
+\begin_layout Itemize
+Administratorzy: zaznajomieni z systemem operacyjnym i używanym oprogramowaniem,
+ wyszkoleni z zakresu bezpieczeństwa
+\end_layout
+
+\begin_layout Itemize
+Sprzęt: od uznanych dostawców, serwer możliwie odporny na awarie pojedynczych
+ elementów, redundantne zasilacze, samodiagnostyka, zabezpieczenia fizyczne
+\end_layout
+
+\begin_layout Itemize
+Serwerownia: zabezpieczenia dostępu fizycznego, spełnione wymagania środowiskowe
+ dla sprzętu
+\end_layout
+
+\begin_layout Itemize
+Identyfikacja i uwierzytelnianie: najlepiej metoda hybrydowa (tokeny i hasła),
+ hasła jednorazowe, ewentualnie hasła statyczne
+\end_layout
+
+\begin_layout Itemize
+UPS: Baterie powinny zapewniać zasilanie dla całego sprzętu przez czas kilka
+ razy dłuższy od czasu typowego zaniku napięcia lub przy obecności agregatu
+ prądotwórczego (dla systemów pracujących non-stop) na czas wystarczający
+ na uruchomienie i ustabilizowanie pracy agregatu
+\end_layout
+
+\begin_layout Itemize
+Kopie bezpieczeństwa: całościowe co najmniej raz w tygodniu, przyrostowe
+ i całościowe przechowywane w różnych miejscach, ew.
+ zabezpieczenia kryptograficzne
+\end_layout
+
+\begin_layout Itemize
+Hartowanie: ????????
+\end_layout
+
+\begin_layout Itemize
+RBAC: Jeśli serwer znajduje się pod opieką zespołu administratorów (powinni
+ oni mieć różne uprawnienia), zaleca się, dla zgodności ze strategią minimalnych
+ uprawnień, wykorzystanie mechanizmu kontroli dostępu RBAC.
+ 
+\end_layout
+
+\begin_layout Itemize
+Audyt: śledzenie wszystkich zdarzeń wykonywanych przez użytkowników
+\end_layout
+
+\begin_layout Itemize
+Oprogramowanie antywirusowe: w przypadku serwera poczty lub serwera plików,
+ lub gdy SO jest podatny (Windows hehe)
+\end_layout
+
+\begin_layout Itemize
+Znaki wodne: automatyczne znakowanie treści w przypadku treści chronionej
+ prawami autorskimi gdy znane są dane klienta (a co to ma do obliczeń???)
+\end_layout
+
+\begin_layout Itemize
+HIDS: (
+\lang english
+Human Intrusion Detection System
+\lang polish
+?) - np.
+ monitorowanie otwarcia obudowy serwera
+\end_layout
+
+\begin_layout Itemize
+Separacja usług: jak największe rozdzielenie usług pomiędzy różne serwery
+ (maszyny)
+\end_layout
+
+\begin_layout Itemize
+Serwery pośredniczące: np.: niemożliwy dostęp do serwera bazy z zewnątrz
+\end_layout
+
+\begin_layout Itemize
+Honeypot: Powinien być stosowany, jeśli przechowywane są wartościowe dane,
+ a zwłaszcza jeśli istnieje obawa przed atakiem z wewnątrz.
+ Przyjmując, że dostęp do serwera przechowującego kluczowe informacje jest
+ możliwy tylko za pośrednictwem serwerów front-end (a więc dobrze znanych),
+ wszystkie połączenia, które przychodzą z innego źródła należy przekierować
+ do honeypota.
+ Honeypot może zostać zrealizowany przez przekierowanie portów – odwołania
+ do innych portów niż działające na właściwym serwerze mogą być przekierowywane
+ do honeypota.
+ 
+\end_layout
+
+\begin_layout Itemize
+Zapora ogniowa: Dostęp do serwera zarówno z zewnątrz jak i wewnątrz powinien
+ być możliwy tylko za pośrednictwem zapory ogniowej działającej niezależnie
+ od serwera
+\end_layout
+
+\begin_layout Itemize
+NIDS i NNIDS: ????????
 \end_layout
 
 \begin_layout Section
@@ -1920,24 +2327,54 @@ SSL jest zbudowany z czterech pod-protokołów:
 SSL record protocol,
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+definiuje format używanych do transmisji danych.
+ Wysyłana informacja jest dzielona na odpowiedniej długości fragmenty.
+ Fragmenty te następnie poddawane są kompresji, szyfrowaniu i w takiej postaci
+ są przekazywane warstwom niższym.
+ Podczas odbierania informacji operacje te przebiegają w odwrotnej kolejności.
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 
 \lang english
 SSL handshake protocol,
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+protokół zmiany specyfikacji szyfru SSL
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 
 \lang english
 SSL Alert protocol,
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+protokół alarmowy SSL
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 
 \lang english
 SSL cipher change protocol.
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+wykorzystuje SSL record protocol w celu wymiany komunikatów pomiędzy klientem
+ i serwerem podczas nawiązywania połączenia.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Jak przebiega atak typu Distributed D-o-S? Podaj aktorów i fazy ataku.
 \end_layout
